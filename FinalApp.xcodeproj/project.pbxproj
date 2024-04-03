@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EF3119362BBDE88E0079210A /* FinalAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3119352BBDE88E0079210A /* FinalAppApp.swift */; };
+		EF3119362BBDE88E0079210A /* TheFinalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3119352BBDE88E0079210A /* TheFinalApp.swift */; };
 		EF3119382BBDE88E0079210A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3119372BBDE88E0079210A /* ContentView.swift */; };
 		EF31193A2BBDE88F0079210A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF3119392BBDE88F0079210A /* Assets.xcassets */; };
 		EF31193D2BBDE88F0079210A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF31193C2BBDE88F0079210A /* Preview Assets.xcassets */; };
@@ -35,7 +35,7 @@
 
 /* Begin PBXFileReference section */
 		EF3119322BBDE88E0079210A /* FinalApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EF3119352BBDE88E0079210A /* FinalAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalAppApp.swift; sourceTree = "<group>"; };
+		EF3119352BBDE88E0079210A /* TheFinalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheFinalApp.swift; sourceTree = "<group>"; };
 		EF3119372BBDE88E0079210A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EF3119392BBDE88F0079210A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF31193C2BBDE88F0079210A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -94,7 +94,7 @@
 		EF3119342BBDE88E0079210A /* FinalApp */ = {
 			isa = PBXGroup;
 			children = (
-				EF3119352BBDE88E0079210A /* FinalAppApp.swift */,
+				EF3119352BBDE88E0079210A /* TheFinalApp.swift */,
 				EF3119372BBDE88E0079210A /* ContentView.swift */,
 				EF3119392BBDE88F0079210A /* Assets.xcassets */,
 				EF31193B2BBDE88F0079210A /* Preview Content */,
@@ -258,7 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF3119382BBDE88E0079210A /* ContentView.swift in Sources */,
-				EF3119362BBDE88E0079210A /* FinalAppApp.swift in Sources */,
+				EF3119362BBDE88E0079210A /* TheFinalApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
