@@ -42,8 +42,11 @@ An app where users can stay up-to-date on the latest balancing changes and META.
 - PROBLEM: This may just devolve into social media. There's no clear way to know what the META is, and there may not be a strong structure to the app as a result.
 
 3. Community Based Strat Roulette
-Users will be able to roll the dice and subject their team to various challenges and self-imposed "modifiers". 
-- API USAGE: TBD
+Users will be able to roll the dice and subject their team to various challenges and self-imposed "modifiers".  To compromise with idea 1, we decicded that some element of exercise could easily be integrated into the challanges or modifiers.
+- Possible extra goals:
+    - Static community achievements (aside from roulette challenges)
+    - Support for multiple games
+- API USAGE: TBD - Possibly Steam API(?) or Bungie API(?)
 - AUTH/PROFILE USAGE: Submit your own challenges and create your own lists of challenges to roll with.
 
 
