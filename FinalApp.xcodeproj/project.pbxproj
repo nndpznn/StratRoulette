@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF21B2B02BC480010033EB2D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF21B2AF2BC480010033EB2D /* GoogleService-Info.plist */; };
+		EF21B2B32BC4813A0033EB2D /* FirebaseAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = EF21B2B22BC4813A0033EB2D /* FirebaseAuthUI */; };
+		EF21B2B52BC4813A0033EB2D /* FirebaseEmailAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = EF21B2B42BC4813A0033EB2D /* FirebaseEmailAuthUI */; };
+		EF21B2B82BC481BC0033EB2D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EF21B2B72BC481BC0033EB2D /* FirebaseAuth */; };
+		EF21B2BA2BC481BC0033EB2D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = EF21B2B92BC481BC0033EB2D /* FirebaseFirestore */; };
 		EF3119362BBDE88E0079210A /* TheFinalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3119352BBDE88E0079210A /* TheFinalApp.swift */; };
 		EF3119382BBDE88E0079210A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3119372BBDE88E0079210A /* ContentView.swift */; };
 		EF31193A2BBDE88F0079210A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF3119392BBDE88F0079210A /* Assets.xcassets */; };
@@ -34,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EF21B2AF2BC480010033EB2D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EF3119322BBDE88E0079210A /* FinalApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF3119352BBDE88E0079210A /* TheFinalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheFinalApp.swift; sourceTree = "<group>"; };
 		EF3119372BBDE88E0079210A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,6 +57,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF21B2B52BC4813A0033EB2D /* FirebaseEmailAuthUI in Frameworks */,
+				EF21B2BA2BC481BC0033EB2D /* FirebaseFirestore in Frameworks */,
+				EF21B2B82BC481BC0033EB2D /* FirebaseAuth in Frameworks */,
+				EF21B2B32BC4813A0033EB2D /* FirebaseAuthUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +84,7 @@
 		EF3119292BBDE88E0079210A = {
 			isa = PBXGroup;
 			children = (
+				EF21B2AF2BC480010033EB2D /* GoogleService-Info.plist */,
 				EF3119342BBDE88E0079210A /* FinalApp */,
 				EF3119452BBDE88F0079210A /* FinalAppTests */,
 				EF31194F2BBDE88F0079210A /* FinalAppUITests */,
@@ -143,6 +154,12 @@
 			dependencies = (
 			);
 			name = FinalApp;
+			packageProductDependencies = (
+				EF21B2B22BC4813A0033EB2D /* FirebaseAuthUI */,
+				EF21B2B42BC4813A0033EB2D /* FirebaseEmailAuthUI */,
+				EF21B2B72BC481BC0033EB2D /* FirebaseAuth */,
+				EF21B2B92BC481BC0033EB2D /* FirebaseFirestore */,
+			);
 			productName = FinalApp;
 			productReference = EF3119322BBDE88E0079210A /* FinalApp.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +232,10 @@
 				Base,
 			);
 			mainGroup = EF3119292BBDE88E0079210A;
+			packageReferences = (
+				EF21B2B12BC4813A0033EB2D /* XCRemoteSwiftPackageReference "FirebaseUI-iOS" */,
+				EF21B2B62BC481BC0033EB2D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = EF3119332BBDE88E0079210A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -233,6 +254,7 @@
 			files = (
 				EF31193D2BBDE88F0079210A /* Preview Assets.xcassets in Resources */,
 				EF31193A2BBDE88F0079210A /* Assets.xcassets in Resources */,
+				EF21B2B02BC480010033EB2D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,6 +610,48 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EF21B2B12BC4813A0033EB2D /* XCRemoteSwiftPackageReference "FirebaseUI-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/FirebaseUI-iOS.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 13.1.0;
+			};
+		};
+		EF21B2B62BC481BC0033EB2D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.23.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EF21B2B22BC4813A0033EB2D /* FirebaseAuthUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF21B2B12BC4813A0033EB2D /* XCRemoteSwiftPackageReference "FirebaseUI-iOS" */;
+			productName = FirebaseAuthUI;
+		};
+		EF21B2B42BC4813A0033EB2D /* FirebaseEmailAuthUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF21B2B12BC4813A0033EB2D /* XCRemoteSwiftPackageReference "FirebaseUI-iOS" */;
+			productName = FirebaseEmailAuthUI;
+		};
+		EF21B2B72BC481BC0033EB2D /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF21B2B62BC481BC0033EB2D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		EF21B2B92BC481BC0033EB2D /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF21B2B62BC481BC0033EB2D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EF31192A2BBDE88E0079210A /* Project object */;
 }
