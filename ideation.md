@@ -4,7 +4,7 @@
 ## Guiding Questions
 
 ### Which audiences did you consider, and which one did you settle on for your app?
-We considered college students, gamers, Destiny 2 players, Logic and Computer Design students, and Den-goers. We settled on Destiny 2 players for now.
+We considered college students, gamers, Destiny 2 players, Logic and Computer Design students, and Den-goers. We settled on gamers for now.
 
 ### List the ten needs that you identified for your chosen audience.
 
