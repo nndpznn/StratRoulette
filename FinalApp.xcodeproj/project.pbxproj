@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA6FCE342BC71E1100E53020 /* Delagate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6FCE332BC71E1100E53020 /* Delagate.swift */; };
 		EF21B2B02BC480010033EB2D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF21B2AF2BC480010033EB2D /* GoogleService-Info.plist */; };
 		EF21B2B32BC4813A0033EB2D /* FirebaseAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = EF21B2B22BC4813A0033EB2D /* FirebaseAuthUI */; };
 		EF21B2B52BC4813A0033EB2D /* FirebaseEmailAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = EF21B2B42BC4813A0033EB2D /* FirebaseEmailAuthUI */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DA6FCE332BC71E1100E53020 /* Delagate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delagate.swift; sourceTree = "<group>"; };
 		EF21B2AF2BC480010033EB2D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EF3119322BBDE88E0079210A /* FinalApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF3119352BBDE88E0079210A /* TheFinalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheFinalApp.swift; sourceTree = "<group>"; };
@@ -81,9 +83,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA6FCE302BC71DA200E53020 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DA6FCE312BC71DB200E53020 /* Service(Firebase) */ = {
+			isa = PBXGroup;
+			children = (
+				DA6FCE332BC71E1100E53020 /* Delagate.swift */,
+			);
+			path = "Service(Firebase)";
+			sourceTree = "<group>";
+		};
+		DA6FCE322BC71DD300E53020 /* Service(API) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Service(API)";
+			sourceTree = "<group>";
+		};
 		EF3119292BBDE88E0079210A = {
 			isa = PBXGroup;
 			children = (
+				DA6FCE302BC71DA200E53020 /* Views */,
+				DA6FCE322BC71DD300E53020 /* Service(API) */,
+				DA6FCE312BC71DB200E53020 /* Service(Firebase) */,
 				EF21B2AF2BC480010033EB2D /* GoogleService-Info.plist */,
 				EF3119342BBDE88E0079210A /* FinalApp */,
 				EF3119452BBDE88F0079210A /* FinalAppTests */,
@@ -279,6 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA6FCE342BC71E1100E53020 /* Delagate.swift in Sources */,
 				EF3119382BBDE88E0079210A /* ContentView.swift in Sources */,
 				EF3119362BBDE88E0079210A /* TheFinalApp.swift in Sources */,
 			);
