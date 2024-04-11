@@ -20,6 +20,15 @@
 		EF3119472BBDE88F0079210A /* FinalAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3119462BBDE88F0079210A /* FinalAppTests.swift */; };
 		EF3119512BBDE88F0079210A /* FinalAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3119502BBDE88F0079210A /* FinalAppUITests.swift */; };
 		EF3119532BBDE88F0079210A /* FinalAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3119522BBDE88F0079210A /* FinalAppUITestsLaunchTests.swift */; };
+		EF502CA02BC7A76C00F20C00 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF502C9F2BC7A76C00F20C00 /* User.swift */; };
+		EF502CA22BC7A77E00F20C00 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF502CA12BC7A77E00F20C00 /* Challenge.swift */; };
+		EF502CA42BC7A7B200F20C00 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF502CA32BC7A7B200F20C00 /* Playlist.swift */; };
+		EF502CA92BC7A91400F20C00 /* UserDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF502CA82BC7A91300F20C00 /* UserDetail.swift */; };
+		EF502CAB2BC7A92200F20C00 /* UserIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF502CAA2BC7A92200F20C00 /* UserIcon.swift */; };
+		EF502CAD2BC7A93400F20C00 /* PlaylistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF502CAC2BC7A93400F20C00 /* PlaylistItem.swift */; };
+		EF502CAF2BC7A93B00F20C00 /* PlaylistDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF502CAE2BC7A93B00F20C00 /* PlaylistDetail.swift */; };
+		EF502CB12BC7A94C00F20C00 /* ChallengeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF502CB02BC7A94C00F20C00 /* ChallengeDetail.swift */; };
+		EF502CB32BC7AF8800F20C00 /* EXAMPLEVALUES.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF502CB22BC7AF8800F20C00 /* EXAMPLEVALUES.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +61,15 @@
 		EF31194C2BBDE88F0079210A /* FinalAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinalAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF3119502BBDE88F0079210A /* FinalAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalAppUITests.swift; sourceTree = "<group>"; };
 		EF3119522BBDE88F0079210A /* FinalAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EF502C9F2BC7A76C00F20C00 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		EF502CA12BC7A77E00F20C00 /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
+		EF502CA32BC7A7B200F20C00 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
+		EF502CA82BC7A91300F20C00 /* UserDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetail.swift; sourceTree = "<group>"; };
+		EF502CAA2BC7A92200F20C00 /* UserIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIcon.swift; sourceTree = "<group>"; };
+		EF502CAC2BC7A93400F20C00 /* PlaylistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistItem.swift; sourceTree = "<group>"; };
+		EF502CAE2BC7A93B00F20C00 /* PlaylistDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistDetail.swift; sourceTree = "<group>"; };
+		EF502CB02BC7A94C00F20C00 /* ChallengeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetail.swift; sourceTree = "<group>"; };
+		EF502CB22BC7AF8800F20C00 /* EXAMPLEVALUES.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EXAMPLEVALUES.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +104,10 @@
 		DA6FCE302BC71DA200E53020 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EF502CB22BC7AF8800F20C00 /* EXAMPLEVALUES.swift */,
+				EF502CA52BC7A8D400F20C00 /* User */,
+				EF502CA62BC7A8DE00F20C00 /* Playlist */,
+				EF502CA72BC7A8EC00F20C00 /* Challenge */,
 			);
 			name = Views;
 			path = ../Views;
@@ -131,6 +153,7 @@
 		EF3119342BBDE88E0079210A /* FinalApp */ = {
 			isa = PBXGroup;
 			children = (
+				EF502C9E2BC7A75B00F20C00 /* Model */,
 				DA6FCE302BC71DA200E53020 /* Views */,
 				DA6FCE322BC71DD300E53020 /* Service(API) */,
 				DA6FCE312BC71DB200E53020 /* Service(Firebase) */,
@@ -165,6 +188,42 @@
 				EF3119522BBDE88F0079210A /* FinalAppUITestsLaunchTests.swift */,
 			);
 			path = FinalAppUITests;
+			sourceTree = "<group>";
+		};
+		EF502C9E2BC7A75B00F20C00 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EF502C9F2BC7A76C00F20C00 /* User.swift */,
+				EF502CA32BC7A7B200F20C00 /* Playlist.swift */,
+				EF502CA12BC7A77E00F20C00 /* Challenge.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EF502CA52BC7A8D400F20C00 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				EF502CAA2BC7A92200F20C00 /* UserIcon.swift */,
+				EF502CA82BC7A91300F20C00 /* UserDetail.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		EF502CA62BC7A8DE00F20C00 /* Playlist */ = {
+			isa = PBXGroup;
+			children = (
+				EF502CAC2BC7A93400F20C00 /* PlaylistItem.swift */,
+				EF502CAE2BC7A93B00F20C00 /* PlaylistDetail.swift */,
+			);
+			path = Playlist;
+			sourceTree = "<group>";
+		};
+		EF502CA72BC7A8EC00F20C00 /* Challenge */ = {
+			isa = PBXGroup;
+			children = (
+				EF502CB02BC7A94C00F20C00 /* ChallengeDetail.swift */,
+			);
+			path = Challenge;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,9 +367,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF502CA02BC7A76C00F20C00 /* User.swift in Sources */,
+				EF502CB12BC7A94C00F20C00 /* ChallengeDetail.swift in Sources */,
+				EF502CAD2BC7A93400F20C00 /* PlaylistItem.swift in Sources */,
+				EF502CAB2BC7A92200F20C00 /* UserIcon.swift in Sources */,
+				EF502CA92BC7A91400F20C00 /* UserDetail.swift in Sources */,
+				EF502CAF2BC7A93B00F20C00 /* PlaylistDetail.swift in Sources */,
 				DA6FCE342BC71E1100E53020 /* Delegate.swift in Sources */,
 				EF3119382BBDE88E0079210A /* ContentView.swift in Sources */,
 				EF3119362BBDE88E0079210A /* TheFinalApp.swift in Sources */,
+				EF502CA22BC7A77E00F20C00 /* Challenge.swift in Sources */,
+				EF502CB32BC7AF8800F20C00 /* EXAMPLEVALUES.swift in Sources */,
+				EF502CA42BC7A7B200F20C00 /* Playlist.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
