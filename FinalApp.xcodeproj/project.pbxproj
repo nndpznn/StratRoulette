@@ -11,6 +11,7 @@
 		DA80E0572BC8E8DC005B225B /* StratAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA80E0562BC8E8DC005B225B /* StratAuth.swift */; };
 		DA80E0592BC9C94B005B225B /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA80E0582BC9C94B005B225B /* Login.swift */; };
 		DA80E05B2BC9C990005B225B /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA80E05A2BC9C990005B225B /* AuthViewController.swift */; };
+		DA80E0602BCB4072005B225B /* GlowBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA80E05F2BCB4072005B225B /* GlowBorder.swift */; };
 		EF21B2B02BC480010033EB2D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF21B2AF2BC480010033EB2D /* GoogleService-Info.plist */; };
 		EF21B2B32BC4813A0033EB2D /* FirebaseAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = EF21B2B22BC4813A0033EB2D /* FirebaseAuthUI */; };
 		EF21B2B52BC4813A0033EB2D /* FirebaseEmailAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = EF21B2B42BC4813A0033EB2D /* FirebaseEmailAuthUI */; };
@@ -56,6 +57,7 @@
 		DA80E0562BC8E8DC005B225B /* StratAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StratAuth.swift; sourceTree = "<group>"; };
 		DA80E0582BC9C94B005B225B /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		DA80E05A2BC9C990005B225B /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		DA80E05F2BCB4072005B225B /* GlowBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlowBorder.swift; sourceTree = "<group>"; };
 		EF21B2AF2BC480010033EB2D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EF3119322BBDE88E0079210A /* FinalApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF3119352BBDE88E0079210A /* TheFinalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheFinalApp.swift; sourceTree = "<group>"; };
@@ -111,6 +113,8 @@
 			isa = PBXGroup;
 			children = (
 				EF502CB22BC7AF8800F20C00 /* EXAMPLEVALUES.swift */,
+				DA80E0582BC9C94B005B225B /* Login.swift */,
+				DA80E05A2BC9C990005B225B /* AuthViewController.swift */,
 				EF502CA52BC7A8D400F20C00 /* User */,
 				EF502CA62BC7A8DE00F20C00 /* Playlist */,
 				EF502CA72BC7A8EC00F20C00 /* Challenge */,
@@ -134,6 +138,14 @@
 			);
 			name = "Service(API)";
 			path = "../Service(API)";
+			sourceTree = "<group>";
+		};
+		DA80E05E2BCB4052005B225B /* UI Additions */ = {
+			isa = PBXGroup;
+			children = (
+				DA80E05F2BCB4072005B225B /* GlowBorder.swift */,
+			);
+			path = "UI Additions";
 			sourceTree = "<group>";
 		};
 		EF3119292BBDE88E0079210A = {
@@ -160,6 +172,7 @@
 		EF3119342BBDE88E0079210A /* FinalApp */ = {
 			isa = PBXGroup;
 			children = (
+				DA80E05E2BCB4052005B225B /* UI Additions */,
 				EF502C9E2BC7A75B00F20C00 /* Model */,
 				DA6FCE302BC71DA200E53020 /* Views */,
 				DA6FCE322BC71DD300E53020 /* Service(API) */,
@@ -210,10 +223,8 @@
 		EF502CA52BC7A8D400F20C00 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				DA80E05A2BC9C990005B225B /* AuthViewController.swift */,
 				EF502CAA2BC7A92200F20C00 /* UserIcon.swift */,
 				EF502CA82BC7A91300F20C00 /* UserDetail.swift */,
-				DA80E0582BC9C94B005B225B /* Login.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -378,6 +389,7 @@
 			files = (
 				DA80E0572BC8E8DC005B225B /* StratAuth.swift in Sources */,
 				EF502CA02BC7A76C00F20C00 /* Author.swift in Sources */,
+				DA80E0602BCB4072005B225B /* GlowBorder.swift in Sources */,
 				EF502CB12BC7A94C00F20C00 /* ChallengeDetail.swift in Sources */,
 				EF502CAD2BC7A93400F20C00 /* PlaylistItem.swift in Sources */,
 				EF502CAB2BC7A92200F20C00 /* UserIcon.swift in Sources */,
