@@ -32,7 +32,7 @@ struct ChallengeDetail: View {
                     .font(.title2)
                     .bold()
                 
-                UserIcon(user: challenge.author)
+                UserIcon(author: challenge.author)
             }
         }
     }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UserIcon: View {
-    var user: User
+    var author: Author
     
     var body: some View {
         ZStack {
@@ -24,7 +24,7 @@ struct UserIcon: View {
                 Spacer()
                 
                 VStack {
-                    Text(user.username)
+                    Text(author.username)
                         .font(.title)
                         .bold()
                 }
@@ -35,6 +35,6 @@ struct UserIcon: View {
 }
 
 #Preview {
-    UserIcon(user: exampleUser)
+    UserIcon(author: exampleUser)
 }
 

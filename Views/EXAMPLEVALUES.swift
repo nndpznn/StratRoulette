@@ -7,7 +7,7 @@
 
 import Foundation
 
-var exampleUser = User(id:"0001", username: "nndpznn", email: "nolan2087@gmail.com", playlists: [examplePlaylist])
+var exampleUser = Author(id:"0001", username: "nndpznn", email: "nolan2087@gmail.com", playlists: [examplePlaylist])
 
 var exampleChallenge1 = Challenge(id:"0001", title: "A Little Sus", description: "Only use AmongUs-related callouts in the last encounter of Vault of Glass.", author: exampleUser)
 
