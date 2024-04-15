@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct TheFinalApp: App {
+    @UIApplicationDelegateAdaptor(Delegate.self) var appDelegate
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(StratAuth())
         }
     }
 }

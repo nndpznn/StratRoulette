@@ -27,40 +27,107 @@ struct Login: View {
                     .offset(x: 0, y: -150)
                     .glowBorder(color: .black, lineWidth: 10)
                 
-                Button(action: {
-                    // Add action here
-                }) {
-                    Text("Sign In")
-                        .font(.system(size: 25, weight: .medium))
-                        .foregroundColor(.black) // Change text color to black
-                        //.glowBorder(color: .white, lineWidth: 5)
-                }
-                .buttonStyle(PlainButtonStyle())
-                .background(
-                    Capsule()
-                        .fill(Color.blue)
-                        .frame(width: 300, height: 50) // Adjust width and height as needed
-                        .glowBorder(color: .white, lineWidth: 10)
-                )
-                
-                Button(action: {
-                    // Add action here
-                }) {
+                // MARK: - If NOT logged in, show this screen
+                if auth.user == nil{
+                    Button(action: {
+                        login = true
+                    }) {
+                        Text("Sign In")
+                            .font(.system(size: 25, weight: .medium))
+                            .foregroundColor(.black) // Change text color to black
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    .background(
+                        Capsule()
+                            .fill(Color.blue)
+                            .frame(width: 300, height: 50) // Adjust width and height as needed
+                            .glowBorder(color: .white, lineWidth: 10)
+                    )
+                    .sheet(isPresented: $login) {
+                        if let authUI = auth.authUI {
+                            AuthViewController(authUI: authUI)
+                        }
+                    }
                     
-                    Text("Help")
-                        .font(.system(size: 25, weight: .medium))
-                        .foregroundColor(.black) // Change text color to black
+                    Button(action: {
                         
+                    }) {
+                        
+                        Text("Help")
+                            .font(.system(size: 25, weight: .medium))
+                            .foregroundColor(.black) // Change text color to black
+                        
+                    }
+                    
+                    .buttonStyle(PlainButtonStyle())
+                    .background(
+                        Capsule()
+                            .fill(Color.blue)
+                            .frame(width: 300, height: 50) // Adjust width and height as needed
+                            .glowBorder(color: .white, lineWidth: 10)
+                    )
+                    .offset(y: 50)
+                    
+                    
+                // MARK: - If logged in, show this screen
+                } else  {
+                    Button(action: {
+                        //Action
+                    }) {
+                        Text("View App")
+                            .font(.system(size: 25, weight: .medium))
+                            .foregroundColor(.black) // Change text color to black
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    .background(
+                        Capsule()
+                            .fill(Color.blue)
+                            .frame(width: 300, height: 50) // Adjust width and height as needed
+                            .glowBorder(color: .white, lineWidth: 10)
+                    )
+                    
+                    Button(action: {
+                        //Action
+                    }) {
+                        Text("View Profile")
+                            .font(.system(size: 25, weight: .medium))
+                            .foregroundColor(.black) // Change text color to black
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    
+                    .background(
+                        Capsule()
+                            .fill(Color.blue)
+                            .frame(width: 300, height: 50) // Adjust width and height as needed
+                            .glowBorder(color: .white, lineWidth: 10)
+                    )
+                    .offset(y: 50)
+                    
+                    Button(action: {
+                        login = false
+                        do {
+                            try auth.signOut()
+                        } catch {
+                            // Error handle
+                        }
+                        
+                    }) {
+                        Text("Sign Out")
+                            .font(.system(size: 25, weight: .medium))
+                            .foregroundColor(.black) // Change text color to black
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    
+                    .background(
+                        Capsule()
+                            .fill(Color.red)
+                            .frame(width: 300, height: 50) // Adjust width and height as needed
+                            .glowBorder(color: .white, lineWidth: 10)
+                    )
+                    .offset(y: 100)
+                    
+                    
                 }
-                
-                .buttonStyle(PlainButtonStyle())
-                .background(
-                    Capsule()
-                        .fill(Color.blue)
-                        .frame(width: 300, height: 50) // Adjust width and height as needed
-                        .glowBorder(color: .white, lineWidth: 10)
-                )
-                .offset(y: 50)
             }
             
                         
