@@ -14,7 +14,7 @@ struct UserIcon: View {
         ZStack {
             RoundedRectangle(cornerRadius: 15)
                 .fill(.white)
-                .frame(width: 350, height: 100)
+                .frame(width: 325, height: 100)
                 .shadow(radius:2)
             HStack(alignment: .center) {
                 Image(systemName:"person.circle")
@@ -29,7 +29,7 @@ struct UserIcon: View {
                         .bold()
                 }
             }
-            .padding(40)
+            .padding(50)
         }
     }
 }

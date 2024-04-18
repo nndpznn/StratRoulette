@@ -15,7 +15,7 @@ struct ChallengeDetail: View {
         ZStack {
             RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
                 .fill(.white)
-                .frame(width:375,height:350)
+                .frame(width:350,height:350)
                 .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
             
             VStack {
@@ -34,6 +34,7 @@ struct ChallengeDetail: View {
                 
                 UserIcon(author: challenge.author)
             }
+            .padding()
         }
     }
 }

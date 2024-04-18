@@ -25,6 +25,10 @@
 		EF3119472BBDE88F0079210A /* FinalAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3119462BBDE88F0079210A /* FinalAppTests.swift */; };
 		EF3119512BBDE88F0079210A /* FinalAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3119502BBDE88F0079210A /* FinalAppUITests.swift */; };
 		EF3119532BBDE88F0079210A /* FinalAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3119522BBDE88F0079210A /* FinalAppUITestsLaunchTests.swift */; };
+		EF3CF8E52BD0D33A007245F9 /* ChallengeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3CF8E42BD0D33A007245F9 /* ChallengeItem.swift */; };
+		EF3CF8E92BD0DBA7007245F9 /* CreateChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3CF8E82BD0DBA7007245F9 /* CreateChallenge.swift */; };
+		EF3CF8EB2BD0DBB1007245F9 /* CreatePlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3CF8EA2BD0DBB1007245F9 /* CreatePlaylist.swift */; };
+		EF3CF8ED2BD0DC05007245F9 /* ChallengeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3CF8EC2BD0DC05007245F9 /* ChallengeService.swift */; };
 		EF502CA02BC7A76C00F20C00 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF502C9F2BC7A76C00F20C00 /* Author.swift */; };
 		EF502CA22BC7A77E00F20C00 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF502CA12BC7A77E00F20C00 /* Challenge.swift */; };
 		EF502CA42BC7A7B200F20C00 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF502CA32BC7A7B200F20C00 /* Playlist.swift */; };
@@ -71,6 +75,10 @@
 		EF31194C2BBDE88F0079210A /* FinalAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinalAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF3119502BBDE88F0079210A /* FinalAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalAppUITests.swift; sourceTree = "<group>"; };
 		EF3119522BBDE88F0079210A /* FinalAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EF3CF8E42BD0D33A007245F9 /* ChallengeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeItem.swift; sourceTree = "<group>"; };
+		EF3CF8E82BD0DBA7007245F9 /* CreateChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallenge.swift; sourceTree = "<group>"; };
+		EF3CF8EA2BD0DBB1007245F9 /* CreatePlaylist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlaylist.swift; sourceTree = "<group>"; };
+		EF3CF8EC2BD0DC05007245F9 /* ChallengeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeService.swift; sourceTree = "<group>"; };
 		EF502C9F2BC7A76C00F20C00 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 		EF502CA12BC7A77E00F20C00 /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
 		EF502CA32BC7A7B200F20C00 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
@@ -131,6 +139,7 @@
 			children = (
 				DA6FCE332BC71E1100E53020 /* Delegate.swift */,
 				DA80E0562BC8E8DC005B225B /* StratAuth.swift */,
+				EF3CF8EC2BD0DC05007245F9 /* ChallengeService.swift */,
 			);
 			path = "Service(Firebase)";
 			sourceTree = "<group>";
@@ -236,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				EF502CAC2BC7A93400F20C00 /* PlaylistItem.swift */,
+				EF3CF8EA2BD0DBB1007245F9 /* CreatePlaylist.swift */,
 				EF502CAE2BC7A93B00F20C00 /* PlaylistDetail.swift */,
 			);
 			path = Playlist;
@@ -244,6 +254,8 @@
 		EF502CA72BC7A8EC00F20C00 /* Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				EF3CF8E42BD0D33A007245F9 /* ChallengeItem.swift */,
+				EF3CF8E82BD0DBA7007245F9 /* CreateChallenge.swift */,
 				EF502CB02BC7A94C00F20C00 /* ChallengeDetail.swift */,
 			);
 			path = Challenge;
@@ -392,19 +404,23 @@
 			files = (
 				DA80E0622BD060D9005B225B /* Profile.swift in Sources */,
 				DA80E0572BC8E8DC005B225B /* StratAuth.swift in Sources */,
+				EF3CF8E92BD0DBA7007245F9 /* CreateChallenge.swift in Sources */,
 				EF502CA02BC7A76C00F20C00 /* Author.swift in Sources */,
 				DA80E0602BCB4072005B225B /* GlowBorder.swift in Sources */,
 				EF502CB12BC7A94C00F20C00 /* ChallengeDetail.swift in Sources */,
 				EF502CAD2BC7A93400F20C00 /* PlaylistItem.swift in Sources */,
 				EF502CAB2BC7A92200F20C00 /* UserIcon.swift in Sources */,
 				EF502CA92BC7A91400F20C00 /* UserDetail.swift in Sources */,
+				EF3CF8ED2BD0DC05007245F9 /* ChallengeService.swift in Sources */,
 				EF502CAF2BC7A93B00F20C00 /* PlaylistDetail.swift in Sources */,
 				DA80E05B2BC9C990005B225B /* AuthViewController.swift in Sources */,
 				DA80E0592BC9C94B005B225B /* Login.swift in Sources */,
 				DA6FCE342BC71E1100E53020 /* Delegate.swift in Sources */,
 				EF3119382BBDE88E0079210A /* ContentView.swift in Sources */,
 				EF3119362BBDE88E0079210A /* TheFinalApp.swift in Sources */,
+				EF3CF8E52BD0D33A007245F9 /* ChallengeItem.swift in Sources */,
 				EF502CA22BC7A77E00F20C00 /* Challenge.swift in Sources */,
+				EF3CF8EB2BD0DBB1007245F9 /* CreatePlaylist.swift in Sources */,
 				EF502CB32BC7AF8800F20C00 /* EXAMPLEVALUES.swift in Sources */,
 				EF502CA42BC7A7B200F20C00 /* Playlist.swift in Sources */,
 			);
