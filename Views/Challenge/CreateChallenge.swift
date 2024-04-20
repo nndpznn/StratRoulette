@@ -32,6 +32,6 @@ struct CreateChallenge: View {
     }
 }
 
-#Preview {
-    CreateChallenge()
-}
+//#Preview {
+//    CreateChallenge()
+//}
