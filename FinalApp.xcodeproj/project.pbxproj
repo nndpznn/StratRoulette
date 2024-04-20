@@ -38,6 +38,9 @@
 		EF502CAF2BC7A93B00F20C00 /* PlaylistDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF502CAE2BC7A93B00F20C00 /* PlaylistDetail.swift */; };
 		EF502CB12BC7A94C00F20C00 /* ChallengeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF502CB02BC7A94C00F20C00 /* ChallengeDetail.swift */; };
 		EF502CB32BC7AF8800F20C00 /* EXAMPLEVALUES.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF502CB22BC7AF8800F20C00 /* EXAMPLEVALUES.swift */; };
+		EFCA4EA12BD462BC00D6F731 /* AuthorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA4EA02BD462BC00D6F731 /* AuthorService.swift */; };
+		EFCA4EA32BD46C9B00D6F731 /* MainFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA4EA22BD46C9B00D6F731 /* MainFeed.swift */; };
+		EFCA4EA52BD46E4700D6F731 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA4EA42BD46E4700D6F731 /* HomePage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +91,9 @@
 		EF502CAE2BC7A93B00F20C00 /* PlaylistDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistDetail.swift; sourceTree = "<group>"; };
 		EF502CB02BC7A94C00F20C00 /* ChallengeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetail.swift; sourceTree = "<group>"; };
 		EF502CB22BC7AF8800F20C00 /* EXAMPLEVALUES.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EXAMPLEVALUES.swift; sourceTree = "<group>"; };
+		EFCA4EA02BD462BC00D6F731 /* AuthorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorService.swift; sourceTree = "<group>"; };
+		EFCA4EA22BD46C9B00D6F731 /* MainFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFeed.swift; sourceTree = "<group>"; };
+		EFCA4EA42BD46E4700D6F731 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +132,8 @@
 				DA80E05A2BC9C990005B225B /* AuthViewController.swift */,
 				DA80E0582BC9C94B005B225B /* Login.swift */,
 				DA80E0612BD060D9005B225B /* Profile.swift */,
+				EFCA4EA42BD46E4700D6F731 /* HomePage.swift */,
+				EFCA4EA22BD46C9B00D6F731 /* MainFeed.swift */,
 				EF502CA52BC7A8D400F20C00 /* User */,
 				EF502CA62BC7A8DE00F20C00 /* Playlist */,
 				EF502CA72BC7A8EC00F20C00 /* Challenge */,
@@ -140,6 +148,7 @@
 				DA6FCE332BC71E1100E53020 /* Delegate.swift */,
 				DA80E0562BC8E8DC005B225B /* StratAuth.swift */,
 				EF3CF8EC2BD0DC05007245F9 /* ChallengeService.swift */,
+				EFCA4EA02BD462BC00D6F731 /* AuthorService.swift */,
 			);
 			path = "Service(Firebase)";
 			sourceTree = "<group>";
@@ -245,8 +254,8 @@
 			isa = PBXGroup;
 			children = (
 				EF502CAC2BC7A93400F20C00 /* PlaylistItem.swift */,
-				EF3CF8EA2BD0DBB1007245F9 /* CreatePlaylist.swift */,
 				EF502CAE2BC7A93B00F20C00 /* PlaylistDetail.swift */,
+				EF3CF8EA2BD0DBB1007245F9 /* CreatePlaylist.swift */,
 			);
 			path = Playlist;
 			sourceTree = "<group>";
@@ -255,8 +264,8 @@
 			isa = PBXGroup;
 			children = (
 				EF3CF8E42BD0D33A007245F9 /* ChallengeItem.swift */,
-				EF3CF8E82BD0DBA7007245F9 /* CreateChallenge.swift */,
 				EF502CB02BC7A94C00F20C00 /* ChallengeDetail.swift */,
+				EF3CF8E82BD0DBA7007245F9 /* CreateChallenge.swift */,
 			);
 			path = Challenge;
 			sourceTree = "<group>";
@@ -409,6 +418,7 @@
 				DA80E0602BCB4072005B225B /* GlowBorder.swift in Sources */,
 				EF502CB12BC7A94C00F20C00 /* ChallengeDetail.swift in Sources */,
 				EF502CAD2BC7A93400F20C00 /* PlaylistItem.swift in Sources */,
+				EFCA4EA52BD46E4700D6F731 /* HomePage.swift in Sources */,
 				EF502CAB2BC7A92200F20C00 /* UserIcon.swift in Sources */,
 				EF502CA92BC7A91400F20C00 /* UserDetail.swift in Sources */,
 				EF3CF8ED2BD0DC05007245F9 /* ChallengeService.swift in Sources */,
@@ -417,7 +427,9 @@
 				DA80E0592BC9C94B005B225B /* Login.swift in Sources */,
 				DA6FCE342BC71E1100E53020 /* Delegate.swift in Sources */,
 				EF3119382BBDE88E0079210A /* ContentView.swift in Sources */,
+				EFCA4EA32BD46C9B00D6F731 /* MainFeed.swift in Sources */,
 				EF3119362BBDE88E0079210A /* TheFinalApp.swift in Sources */,
+				EFCA4EA12BD462BC00D6F731 /* AuthorService.swift in Sources */,
 				EF3CF8E52BD0D33A007245F9 /* ChallengeItem.swift in Sources */,
 				EF502CA22BC7A77E00F20C00 /* Challenge.swift in Sources */,
 				EF3CF8EB2BD0DBB1007245F9 /* CreatePlaylist.swift in Sources */,

@@ -41,7 +41,7 @@ struct Profile: View {
                     
                                             
                     Text("Posts:")
-                        .font(.system(size: 30, weight: .bold))
+                        .font(.system(size: 20, weight: .bold))
                         .offset(x: -130, y: 200)
                         .foregroundColor(.white)
                         .glowBorder(color: .black, lineWidth: 7)
@@ -57,4 +57,5 @@ struct Profile: View {
 
 #Preview {
     Profile()
+        .environmentObject(StratAuth())
 }

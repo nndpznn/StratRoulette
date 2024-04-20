@@ -14,8 +14,8 @@ struct ChallengeItem: View {
         ZStack {
             RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
                 .fill(.white)
-                .frame(width:350,height:100)
-                .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                .frame(width:350,height:90)
+                .shadow(radius: 1)
             
             HStack {
                 VStack(alignment: .leading) {
@@ -29,7 +29,7 @@ struct ChallengeItem: View {
                 Spacer()
                 
                 
-                Image(systemName: "chevron.right.circle")
+                Image(systemName: "chevron.right.square")
                     .resizable()
                     .frame(width: 40, height: 40)
                     .foregroundStyle(.gray)
@@ -41,4 +41,5 @@ struct ChallengeItem: View {
 
 #Preview {
     ChallengeItem(challenge: exampleChallenge1)
+        .environmentObject(StratAuth())
 }

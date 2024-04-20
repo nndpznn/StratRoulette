@@ -5,10 +5,16 @@
  */
 import Foundation
 
+import Firebase
 import FirebaseAuthUI
 import FirebaseEmailAuthUI
 
 class StratAuth: NSObject, ObservableObject, FUIAuthDelegate {
+    var authorService: AuthorService = AuthorService()
+    
+    private let db = Firestore.firestore()
+    @Published var error: Error?
+    
     let authUI: FUIAuth? = FUIAuth.defaultAuthUI()
 
     // Multiple providers can be supported! See: https://firebase.google.com/docs/auth/ios/firebaseui
@@ -17,6 +23,7 @@ class StratAuth: NSObject, ObservableObject, FUIAuthDelegate {
     ]
 
     @Published var user: User?
+    @Published var currentAuthor: Author?
 
     /**
      * You might not have overriden a constructor in Swift before...well, here it is.
@@ -41,7 +48,18 @@ class StratAuth: NSObject, ObservableObject, FUIAuthDelegate {
      */
     func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
         if let actualResult = authDataResult {
-            user = actualResult.user
+            Task {
+                do {
+                    let docRef = db.collection("authors").document(actualResult.user.uid)
+                    let newAuthor = try await docRef.getDocument()
+                    if newAuthor.exists {
+                        currentAuthor = try await authorService.fetchAuthor(uid: actualResult.user.uid)
+                    } else {
+                        currentAuthor = authorService.createAuthor(user: actualResult.user)
+                    }
+                }
+                user = actualResult.user
+            }
         }
     }
 
@@ -50,5 +68,6 @@ class StratAuth: NSObject, ObservableObject, FUIAuthDelegate {
 
         // If we get past the logout attempt, we can safely clear the user.
         user = nil
+        currentAuthor = nil
     }
 }

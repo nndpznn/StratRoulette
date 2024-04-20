@@ -73,15 +73,17 @@ struct Login: View {
                         // MARK: - If logged in, show this screen
                     } else  {
                         
-                        Text("View App")
-                            .font(.system(size: 25, weight: .medium))
-                            .foregroundColor(.black) // Change text color to black
-                            .background(
-                                Capsule()
-                                    .fill(Color.blue)
-                                    .frame(width: 300, height: 50) // Adjust width and height as needed
-                                    .glowBorder(color: .white, lineWidth: 10)
-                            )
+                        NavigationLink(destination: HomePage()) {
+                            Text("Enter")
+                                .font(.system(size: 25, weight: .medium))
+                                .foregroundColor(.black) // Change text color to black
+                                .background(
+                                    Capsule()
+                                        .fill(Color.blue)
+                                        .frame(width: 300, height: 50) // Adjust width and height as needed
+                                        .glowBorder(color: .white, lineWidth: 10)
+                                )
+                        }
                         
                         NavigationLink(destination: Profile()){
                             Text("View Profile")
@@ -133,4 +135,5 @@ struct Login: View {
 
 #Preview {
     Login()
+        .environmentObject(StratAuth())
 }

@@ -42,7 +42,7 @@ class ChallengeService: ObservableObject {
     }
     
     func fetchChallenges() async throws -> [Challenge] {
-        var challengeQuery = db.collection(COLLECTION_NAME)
+        let challengeQuery = db.collection(COLLECTION_NAME)
             .limit(to: PAGE_LIMIT)
         
         do {
@@ -59,7 +59,7 @@ class ChallengeService: ObservableObject {
                 }
                 
                 return Challenge(
-                    id: $0.documentID,
+                    id: id,
                     title: title,
                     description: description,
                     author: author
@@ -70,6 +70,4 @@ class ChallengeService: ObservableObject {
             throw error
         }
     }
-    
-    
 }

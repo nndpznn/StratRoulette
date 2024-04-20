@@ -10,8 +10,11 @@ import SwiftUI
 struct PlaylistDetail: View {
     var playlist: Playlist
     var body: some View {
-        List(playlist.challenges, id: \.self) { challenge in
-            Text(challenge)
+        NavigationStack {
+            List(playlist.challenges, id: \.self) { challenge in
+                Text(challenge)
+            }
+            .navigationTitle(playlist.playlistName)
         }
     }
 }
