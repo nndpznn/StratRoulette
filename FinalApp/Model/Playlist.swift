@@ -9,5 +9,5 @@ import Foundation
 
 struct Playlist: Hashable, Codable {
     var playlistName: String
-    var challenges: [String]
+    var challenges: [Challenge]
 }

@@ -11,5 +11,5 @@ struct Challenge: Hashable, Codable, Identifiable {
     var id: String
     var title: String
     var description: String
-    var author: Author
+    var authorID: String
 }

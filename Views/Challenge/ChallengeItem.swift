@@ -13,6 +13,7 @@ struct ChallengeItem: View {
     var body: some View {
         NavigationLink {
             ChallengeDetail(challenge: challenge)
+                .environmentObject(AuthorService())
         } label: {
             ZStack {
                 RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)

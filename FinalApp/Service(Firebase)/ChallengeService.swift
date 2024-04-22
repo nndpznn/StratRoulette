@@ -24,21 +24,21 @@ class ChallengeService: ObservableObject {
     
     @Published var error: Error?
     
-    func createChallenge(challenge: Challenge) -> String {
-        var ref: DocumentReference? = nil
+    func createChallenge(challenge: Challenge) -> Void {
+//        var ref: DocumentReference? = nil
         
-        ref = db.collection(COLLECTION_NAME).addDocument(data: [
+        db.collection(COLLECTION_NAME).addDocument(data: [
             "id": challenge.id,
             "title": challenge.title,
             "description": challenge.description,
-            "author": challenge.author
+            "authorID": challenge.authorID
         ]) { possibleError in
             if let actualError = possibleError {
                 self.error = actualError
             }
         }
         
-        return ref?.documentID ?? ""
+        return
     }
     
     func fetchChallenges() async throws -> [Challenge] {
@@ -53,7 +53,7 @@ class ChallengeService: ObservableObject {
                 guard let id = $0.get("id") as? String,
                       let title = $0.get("title") as? String,
                       let description = $0.get("description") as? String,
-                      let author = $0.get("author") as? Author
+                      let authorID = $0.get("authorid") as? String
                 else {
                     throw ChallengeServiceError.mismatchedDocumentError
                 }
@@ -62,7 +62,7 @@ class ChallengeService: ObservableObject {
                     id: id,
                     title: title,
                     description: description,
-                    author: author
+                    authorID: authorID
                 )
             }
         } catch {
@@ -71,21 +71,21 @@ class ChallengeService: ObservableObject {
         }
     }
     
-    func fetchChallenge(uid: String) async throws -> Challenge {
-        let challengeQuery = db.collection(COLLECTION_NAME)
-        
-        let querySnapshot = try await challengeQuery.document(uid).getDocument()
-          
-        return querySnapshot.data().map { _ in
-            let id = querySnapshot.get("id") as? String ?? "No ID"
-            
-            let title = querySnapshot.get("title") as? String ?? "Not Found"
-            
-            let description = querySnapshot.get("description") as? String ?? ""
-            
-            let author = querySnapshot.get("author") as! Author
-            
-            return Challenge(id:id, title:title, description:description, author:author)
-        }!
-    }
+//    func fetchChallenge(uid: String) async throws -> Challenge {
+//        let challengeQuery = db.collection(COLLECTION_NAME)
+//        
+//        let querySnapshot = try await challengeQuery.document(uid).getDocument()
+//          
+//        return querySnapshot.data().map { _ in
+//            let id = querySnapshot.get("id") as? String ?? "No ID"
+//            
+//            let title = querySnapshot.get("title") as? String ?? "Not Found"
+//            
+//            let description = querySnapshot.get("description") as? String ?? ""
+//            
+//            let author = querySnapshot.get("author") as! Author
+//            
+//            return Challenge(id:id, title:title, description:description, author:author)
+//        }!
+//    }
 }

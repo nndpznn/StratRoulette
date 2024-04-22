@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct CreateChallenge: View {
-    @EnvironmentObject var authorService: AuthorService
     @EnvironmentObject var auth: StratAuth
+    @EnvironmentObject var authorService: AuthorService
     @EnvironmentObject var challengeService: ChallengeService
     
     @Binding var challenges: [Challenge]
@@ -19,11 +19,11 @@ struct CreateChallenge: View {
     @State var description = ""
     
     func submitChallenge() {
-        let challengeID = challengeService.createChallenge(challenge: Challenge(
+        challengeService.createChallenge(challenge: Challenge(
             id: UUID().uuidString,
             title: title,
             description: description,
-            author: auth.currentAuthor!
+            authorID: auth.user!.uid
         ))
         
         writing = false
@@ -41,7 +41,7 @@ struct CreateChallenge: View {
                         .frame(minHeight: 256, maxHeight: .infinity)
                 }
             }
-            .navigationTitle("New Challenge")
+            .navigationTitle("Challenge us.")
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarLeading) {
                     Button("Cancel") {
@@ -50,7 +50,7 @@ struct CreateChallenge: View {
                 }
                 
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    Button("Post") {
+                    Button("Submit") {
                         submitChallenge()
                     }
                     .disabled(title.isEmpty || description.isEmpty)
