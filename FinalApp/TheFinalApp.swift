@@ -14,6 +14,8 @@ struct TheFinalApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(StratAuth())
+                .environmentObject(ChallengeService())
+                .environmentObject(AuthorService())
         }
     }
 }

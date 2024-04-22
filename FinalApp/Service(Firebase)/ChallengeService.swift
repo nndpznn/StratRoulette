@@ -53,7 +53,7 @@ class ChallengeService: ObservableObject {
                 guard let id = $0.get("id") as? String,
                       let title = $0.get("title") as? String,
                       let description = $0.get("description") as? String,
-                      let authorID = $0.get("authorid") as? String
+                      let authorID = $0.get("authorID") as? String
                 else {
                     throw ChallengeServiceError.mismatchedDocumentError
                 }
