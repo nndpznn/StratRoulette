@@ -16,7 +16,7 @@ struct HomePage: View {
                 .tabItem {
                     Label("Feed", systemImage: "list.bullet")
                 }
-            Profile()
+            Profile(challenges: [])
                 .tabItem {
                     Label("Profile", systemImage: "person.circle")
                 }

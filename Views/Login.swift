@@ -85,7 +85,7 @@ struct Login: View {
                                 )
                         }
                         
-                        NavigationLink(destination: Profile()){
+                        NavigationLink(destination: Profile(challenges: [])){
                             Text("View Profile")
                                 .font(.system(size: 25, weight: .medium))
                                 .foregroundColor(.black) // Change text color to black

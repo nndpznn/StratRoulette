@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Profile: View {
     @EnvironmentObject var auth: StratAuth
+    @State var challenges: [Challenge]
     
     var body: some View {
         NavigationView{
@@ -31,13 +32,15 @@ struct Profile: View {
                         .frame(width: 130, height: 130)
                         .offset(x: -90)
                     
-                    if let user = auth.user{
-                        Text(user.displayName ?? "")
-                            .font(.system(size: 35, weight: .bold))
-                            .offset(x: -75, y: 100)
-                            .foregroundColor(.white)
-                            .glowBorder(color: .black, lineWidth: 7)
-                    }
+//                    if let user = auth.user{
+//                        Text(user.displayName ?? "")
+//                            .font(.system(size: 35, weight: .bold))
+//                            .offset(x: -75, y: 100)
+//                            .foregroundColor(.white)
+//                            .glowBorder(color: .black, lineWidth: 7)
+//                    }
+                    
+                    Text("Brian Calastone")
                     
                                             
                     Text("Posts:")
@@ -56,6 +59,6 @@ struct Profile: View {
 }
 
 #Preview {
-    Profile()
+    Profile(challenges: [])
         .environmentObject(StratAuth())
 }
