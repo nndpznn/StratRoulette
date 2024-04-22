@@ -70,4 +70,22 @@ class ChallengeService: ObservableObject {
             throw error
         }
     }
+    
+    func fetchChallenge(uid: String) async throws -> Challenge {
+        let challengeQuery = db.collection(COLLECTION_NAME)
+        
+        let querySnapshot = try await challengeQuery.document(uid).getDocument()
+          
+        return querySnapshot.data().map { _ in
+            let id = querySnapshot.get("id") as? String ?? "No ID"
+            
+            let title = querySnapshot.get("title") as? String ?? "Not Found"
+            
+            let description = querySnapshot.get("description") as? String ?? ""
+            
+            let author = querySnapshot.get("author") as! Author
+            
+            return Challenge(id:id, title:title, description:description, author:author)
+        }!
+    }
 }
