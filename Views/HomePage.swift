@@ -20,6 +20,10 @@ struct HomePage: View {
                 .tabItem {
                     Label("Profile", systemImage: "person.circle")
                 }
+            PlaylistList()
+                .tabItem {
+                    Label("PlaylistTest", systemImage: "list.bullet")
+                }
         }
     }
 }

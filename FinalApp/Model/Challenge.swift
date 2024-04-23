@@ -13,3 +13,12 @@ struct Challenge: Hashable, Codable, Identifiable {
     var description: String
     var authorID: String
 }
+
+extension Encodable {
+    var toDictionary: [String: String]? {
+        guard let data = try? JSONEncoder().encode(self) else {
+            return nil
+        }
+        return try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: String]
+    }
+}

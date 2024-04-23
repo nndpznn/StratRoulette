@@ -16,6 +16,7 @@ struct TheFinalApp: App {
                 .environmentObject(StratAuth())
                 .environmentObject(ChallengeService())
                 .environmentObject(AuthorService())
+                .environmentObject(PlaylistService())
         }
     }
 }

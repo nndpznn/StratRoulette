@@ -9,7 +9,7 @@ import Foundation
 
 import Firebase
 
-let COLLECTION_NAME = "challenges"
+let CHALLENGE_COLLECTION_NAME = "challenges"
 let PAGE_LIMIT = 20
 
 enum ChallengeServiceError: Error {
@@ -27,7 +27,7 @@ class ChallengeService: ObservableObject {
     func createChallenge(challenge: Challenge) -> Void {
 //        var ref: DocumentReference? = nil
         
-        db.collection(COLLECTION_NAME).addDocument(data: [
+        db.collection(CHALLENGE_COLLECTION_NAME).addDocument(data: [
             "id": challenge.id,
             "title": challenge.title,
             "description": challenge.description,
@@ -42,7 +42,7 @@ class ChallengeService: ObservableObject {
     }
     
     func fetchChallenges() async throws -> [Challenge] {
-        let challengeQuery = db.collection(COLLECTION_NAME)
+        let challengeQuery = db.collection(CHALLENGE_COLLECTION_NAME)
             .limit(to: PAGE_LIMIT)
         
         do {

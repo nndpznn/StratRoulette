@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		608531352BD750F7005E5CD7 /* PlaylistService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608531342BD750F7005E5CD7 /* PlaylistService.swift */; };
+		608531372BD75C45005E5CD7 /* PlaylistList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608531362BD75C45005E5CD7 /* PlaylistList.swift */; };
 		DA6FCE342BC71E1100E53020 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6FCE332BC71E1100E53020 /* Delegate.swift */; };
 		DA80E0572BC8E8DC005B225B /* StratAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA80E0562BC8E8DC005B225B /* StratAuth.swift */; };
 		DA80E0592BC9C94B005B225B /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA80E0582BC9C94B005B225B /* Login.swift */; };
@@ -61,6 +63,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		608531342BD750F7005E5CD7 /* PlaylistService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistService.swift; sourceTree = "<group>"; };
+		608531362BD75C45005E5CD7 /* PlaylistList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistList.swift; sourceTree = "<group>"; };
 		DA6FCE332BC71E1100E53020 /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
 		DA80E0562BC8E8DC005B225B /* StratAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StratAuth.swift; sourceTree = "<group>"; };
 		DA80E0582BC9C94B005B225B /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 				DA80E0562BC8E8DC005B225B /* StratAuth.swift */,
 				EF3CF8EC2BD0DC05007245F9 /* ChallengeService.swift */,
 				EFCA4EA02BD462BC00D6F731 /* AuthorService.swift */,
+				608531342BD750F7005E5CD7 /* PlaylistService.swift */,
 			);
 			path = "Service(Firebase)";
 			sourceTree = "<group>";
@@ -256,6 +261,7 @@
 				EF502CAC2BC7A93400F20C00 /* PlaylistItem.swift */,
 				EF502CAE2BC7A93B00F20C00 /* PlaylistDetail.swift */,
 				EF3CF8EA2BD0DBB1007245F9 /* CreatePlaylist.swift */,
+				608531362BD75C45005E5CD7 /* PlaylistList.swift */,
 			);
 			path = Playlist;
 			sourceTree = "<group>";
@@ -418,6 +424,7 @@
 				DA80E0602BCB4072005B225B /* GlowBorder.swift in Sources */,
 				EF502CB12BC7A94C00F20C00 /* ChallengeDetail.swift in Sources */,
 				EF502CAD2BC7A93400F20C00 /* PlaylistItem.swift in Sources */,
+				608531372BD75C45005E5CD7 /* PlaylistList.swift in Sources */,
 				EFCA4EA52BD46E4700D6F731 /* HomePage.swift in Sources */,
 				EF502CAB2BC7A92200F20C00 /* UserIcon.swift in Sources */,
 				EF502CA92BC7A91400F20C00 /* UserDetail.swift in Sources */,
@@ -434,6 +441,7 @@
 				EF502CA22BC7A77E00F20C00 /* Challenge.swift in Sources */,
 				EF3CF8EB2BD0DBB1007245F9 /* CreatePlaylist.swift in Sources */,
 				EF502CB32BC7AF8800F20C00 /* EXAMPLEVALUES.swift in Sources */,
+				608531352BD750F7005E5CD7 /* PlaylistService.swift in Sources */,
 				EF502CA42BC7A7B200F20C00 /* Playlist.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -598,7 +606,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FinalApp/Preview Content\"";
-				DEVELOPMENT_TEAM = 4NLM4MYZ98;
+				DEVELOPMENT_TEAM = F8PJTY7V22;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -627,7 +635,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FinalApp/Preview Content\"";
-				DEVELOPMENT_TEAM = 4NLM4MYZ98;
+				DEVELOPMENT_TEAM = F8PJTY7V22;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
