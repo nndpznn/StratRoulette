@@ -19,31 +19,35 @@ struct PlaylistDetail: View {
     
     var body: some View {
         ZStack{
-            VStack{
-                Text(playlist.playlistName)
-                    .font(.title)
-                List(playlist.challenges, id: \.self) { challenge in
-                    HStack{
-                        Text(challenge.title)
+            NavigationView{
+                VStack{
+                    Text(playlist.playlistName)
+                        .font(.title)
+                    List(playlist.challenges, id: \.self) { challenge in
+                        NavigationLink(destination: ChallengeDetail(challenge: challenge)){
+                            HStack{
+                                Text(challenge.title)
+                            }
+                        }
                     }
+                    //        NavigationStack {
+                    //            List(playlist.challenges, id: \.self) { challenge in
+                    //                Task {
+                    //                    do {
+                    //                        self.error = nil
+                    //                        fetching = true
+                    //                        challenges.append( try await challengeService.fetchChallenge(uid: challenge))
+                    //                        fetching = false
+                    //                    } catch {
+                    //                        self.error = error
+                    //                        fetching = false
+                    //                    }
+                    //                }
+                    ////                ChallengeItem(challenge: currentChallenge)
+                    //            }
+                    //            .navigationTitle(playlist.playlistName)
+                    //        }
                 }
-                //        NavigationStack {
-                //            List(playlist.challenges, id: \.self) { challenge in
-                //                Task {
-                //                    do {
-                //                        self.error = nil
-                //                        fetching = true
-                //                        challenges.append( try await challengeService.fetchChallenge(uid: challenge))
-                //                        fetching = false
-                //                    } catch {
-                //                        self.error = error
-                //                        fetching = false
-                //                    }
-                //                }
-                ////                ChallengeItem(challenge: currentChallenge)
-                //            }
-                //            .navigationTitle(playlist.playlistName)
-                //        }
             }
         }
     }

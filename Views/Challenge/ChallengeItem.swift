@@ -40,7 +40,7 @@ struct ChallengeItem: View {
                 }
                 .padding(40)
             }
-        }
+        }.preferredColorScheme(.light) //Overrides dark mode users so that we don't have white text on white background
     }
 }
 
