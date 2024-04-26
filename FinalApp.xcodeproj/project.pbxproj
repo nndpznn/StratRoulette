@@ -15,6 +15,7 @@
 		DA80E05B2BC9C990005B225B /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA80E05A2BC9C990005B225B /* AuthViewController.swift */; };
 		DA80E0602BCB4072005B225B /* GlowBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA80E05F2BCB4072005B225B /* GlowBorder.swift */; };
 		DA80E0622BD060D9005B225B /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA80E0612BD060D9005B225B /* Profile.swift */; };
+		DA80E0642BD9968E005B225B /* ProgrammableShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA80E0632BD9968E005B225B /* ProgrammableShape.swift */; };
 		EF21B2B02BC480010033EB2D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF21B2AF2BC480010033EB2D /* GoogleService-Info.plist */; };
 		EF21B2B32BC4813A0033EB2D /* FirebaseAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = EF21B2B22BC4813A0033EB2D /* FirebaseAuthUI */; };
 		EF21B2B52BC4813A0033EB2D /* FirebaseEmailAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = EF21B2B42BC4813A0033EB2D /* FirebaseEmailAuthUI */; };
@@ -71,6 +72,7 @@
 		DA80E05A2BC9C990005B225B /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		DA80E05F2BCB4072005B225B /* GlowBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlowBorder.swift; sourceTree = "<group>"; };
 		DA80E0612BD060D9005B225B /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		DA80E0632BD9968E005B225B /* ProgrammableShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgrammableShape.swift; sourceTree = "<group>"; };
 		EF21B2AF2BC480010033EB2D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EF3119322BBDE88E0079210A /* FinalApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF3119352BBDE88E0079210A /* TheFinalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheFinalApp.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 		DA6FCE302BC71DA200E53020 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DA80E0632BD9968E005B225B /* ProgrammableShape.swift */,
 				EF502CB22BC7AF8800F20C00 /* EXAMPLEVALUES.swift */,
 				DA80E05A2BC9C990005B225B /* AuthViewController.swift */,
 				DA80E0582BC9C94B005B225B /* Login.swift */,
@@ -428,6 +431,7 @@
 				EFCA4EA52BD46E4700D6F731 /* HomePage.swift in Sources */,
 				EF502CAB2BC7A92200F20C00 /* UserIcon.swift in Sources */,
 				EF502CA92BC7A91400F20C00 /* UserDetail.swift in Sources */,
+				DA80E0642BD9968E005B225B /* ProgrammableShape.swift in Sources */,
 				EF3CF8ED2BD0DC05007245F9 /* ChallengeService.swift in Sources */,
 				EF502CAF2BC7A93B00F20C00 /* PlaylistDetail.swift in Sources */,
 				DA80E05B2BC9C990005B225B /* AuthViewController.swift in Sources */,

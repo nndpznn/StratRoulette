@@ -13,7 +13,6 @@ struct Profile: View {
     @State var challenges: [Challenge]
     
     var body: some View {
-        
         VStack{
             ZStack{
                 LinearGradient(gradient: Gradient(colors: [.blue, .black]), startPoint: .topLeading, endPoint: .bottomTrailing)
@@ -61,10 +60,6 @@ struct Profile: View {
                 .background(Color.clear)
                 .offset(y: 500)
                 .frame(width: 400, height: 500)
-                
-                
-                
-                
             }
             .offset(y: -275)
         }
