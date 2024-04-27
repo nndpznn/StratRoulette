@@ -68,6 +68,7 @@ class PlaylistService: ObservableObject {
             return try querySnapshot.documents.map {
                 
                 guard let name = $0.get("playlistName") as? String,
+                      let id = $0.get("id") as? String,
                       let challengeList = $0.get("challenges") as? [Dictionary<String, String>]
                 else {
                     throw PlaylistServiceError.mismatchedDocumentError
@@ -76,6 +77,7 @@ class PlaylistService: ObservableObject {
                 let challenges = parseDBChallenges(dictionaries: challengeList)
                 
                 return Playlist(
+                    id: id,
                     playlistName: name,
                     challenges: challenges
                 )

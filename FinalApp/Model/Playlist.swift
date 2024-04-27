@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Playlist: Hashable, Codable {
+struct Playlist: Hashable, Codable, Identifiable {
+    var id: String
     var playlistName: String
     var challenges: [Challenge]
 }

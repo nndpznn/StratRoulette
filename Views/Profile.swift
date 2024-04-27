@@ -10,7 +10,10 @@ import SwiftUI
 struct Profile: View {
     @EnvironmentObject var auth: StratAuth
     @EnvironmentObject var chalService: ChallengeService
+    @EnvironmentObject var playlistService: PlaylistService
+    
     @State var challenges: [Challenge]
+    @State var playlists: [Playlist] = [examplePlaylist]
 
     @State var showPosts: Bool = true
     @State var showPlaylists: Bool = false
@@ -37,19 +40,19 @@ struct Profile: View {
                     .frame(width: 130, height: 130)
                     .offset(x: -90)
                 
-                if let user = auth.user{
-                    Text(user.displayName ?? "")
-                    .frame(width: 400, height: 30, alignment: .leading)
-                    .font(.system(size: 35, weight: .bold))
-                    .offset(x: 25, y: 100)
-                    .foregroundColor(.black)
-                }
-                
-//                Text("Adi Roitburg")
+//                if let user = auth.user{
+//                    Text(user.displayName ?? "")
 //                    .frame(width: 400, height: 30, alignment: .leading)
 //                    .font(.system(size: 35, weight: .bold))
 //                    .offset(x: 25, y: 100)
 //                    .foregroundColor(.black)
+//                }
+                
+                Text("Adi Roitburg")
+                    .frame(width: 400, height: 30, alignment: .leading)
+                    .font(.system(size: 35, weight: .bold))
+                    .offset(x: 25, y: 100)
+                    .foregroundColor(.black)
                 
                 HStack{
                     
@@ -129,6 +132,14 @@ struct Profile: View {
                     .offset(y: 475)
                     .frame(width: 400, height: 500)
                 } else if showPlaylists {
+                    VStack{
+                        List(playlists) { play in
+                            Text(play.playlistName)
+                               
+                        }
+                        .offset(y: 475)
+                        .frame(width: 400, height: 500)
+                    }
                     
                 } else if showAbout{
                     if (!editingBio){
@@ -159,15 +170,14 @@ struct Profile: View {
             }
             .offset(y: -275)
         }
-        .task{
-            do{
-                challenges = try await chalService.fetchChallenges()
-            } catch {
-                // Error handling goes here
-            }
-        }
-        
-        
+//        .task{
+//            do{
+//                challenges = try await chalService.fetchChallenges()
+//                playlists = try await playlistService.fetchPlaylists()
+//            } catch {
+//                // Error handling goes here
+//            }
+//        }
     }
 }
 
