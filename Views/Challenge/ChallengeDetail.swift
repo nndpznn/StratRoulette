@@ -59,6 +59,7 @@ struct ChallengeDetail: View {
                         db.collection("challenges").document(challenge.id).delete()
                         deleted = true
                     }
+                    .disabled(deleted)
                 }
             }
         }

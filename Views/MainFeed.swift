@@ -16,6 +16,10 @@ struct MainFeed: View {
     
     var body: some View {
         VStack {
+            Text("Challenge Feed")
+                .font(.largeTitle)
+                .bold()
+
             Button("New Challenge \(Image(systemName: "plus.circle"))") {
                 writing = true
             }
