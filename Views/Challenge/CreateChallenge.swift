@@ -41,7 +41,7 @@ struct CreateChallenge: View {
                         .frame(minHeight: 256, maxHeight: .infinity)
                 }
             }
-            .navigationTitle("Challenge us.")
+            .navigationTitle("Go on, challenge us!")
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarLeading) {
                     Button("Cancel") {

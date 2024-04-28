@@ -29,7 +29,7 @@ struct PlaylistList: View {
     }
     
     var body: some View {
-        NavigationStack{
+        VStack{
             HStack{
                 NavigationLink(destination: CreatePlaylist().onDisappear(perform: updatePlaylists)){
                     Label("Create New Playlist", systemImage: "folder.fill.badge.plus")

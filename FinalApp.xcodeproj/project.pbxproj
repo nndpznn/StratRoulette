@@ -261,10 +261,10 @@
 		EF502CA62BC7A8DE00F20C00 /* Playlist */ = {
 			isa = PBXGroup;
 			children = (
+				608531362BD75C45005E5CD7 /* PlaylistList.swift */,
 				EF502CAC2BC7A93400F20C00 /* PlaylistItem.swift */,
 				EF502CAE2BC7A93B00F20C00 /* PlaylistDetail.swift */,
 				EF3CF8EA2BD0DBB1007245F9 /* CreatePlaylist.swift */,
-				608531362BD75C45005E5CD7 /* PlaylistList.swift */,
 			);
 			path = Playlist;
 			sourceTree = "<group>";

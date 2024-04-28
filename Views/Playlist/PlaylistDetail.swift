@@ -19,7 +19,6 @@ struct PlaylistDetail: View {
     
     var body: some View {
         ZStack{
-            NavigationView{
                 VStack{
                     Text(playlist.playlistName)
                         .font(.title)
@@ -48,7 +47,6 @@ struct PlaylistDetail: View {
                     //            .navigationTitle(playlist.playlistName)
                     //        }
                 }
-            }
         }
     }
 }

@@ -12,14 +12,38 @@ struct MainFeed: View {
     @EnvironmentObject var challengeService: ChallengeService
     
     @State var challenges: [Challenge] = [exampleChallenge1, exampleChallenge2, exampleChallenge3]
+    @State var writing: Bool = false
     
     var body: some View {
-        List(challenges) { challenge in
-            ChallengeItem(challenge: challenge)
-                .environmentObject(AuthorService())
+        VStack {
+            Button("New Challenge \(Image(systemName: "plus.circle"))") {
+                writing = true
+            }
+            
+            List(challenges) { challenge in
+                ChallengeItem(challenge: challenge)
+                    .environmentObject(AuthorService())
+            }
+            .scrollContentBackground(.hidden)
+            .background(Color.clear)
         }
-        .scrollContentBackground(.hidden)
-        .background(Color.clear)
+        .refreshable {
+            do {
+                challenges = try await challengeService.fetchChallenges()
+            } catch {
+
+            }
+        }
+        .sheet(isPresented: $writing) {
+            CreateChallenge(challenges: $challenges, writing: $writing)
+        }
+        .task {
+            do {
+                challenges = try await challengeService.fetchChallenges()
+            } catch {
+
+            }
+        }
     }
 }
 

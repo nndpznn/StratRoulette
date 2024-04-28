@@ -50,8 +50,7 @@ class ChallengeService: ObservableObject {
             
             return try querySnapshot.documents.map {
                 
-                guard let id = $0.get("id") as? String,
-                      let title = $0.get("title") as? String,
+                guard let title = $0.get("title") as? String,
                       let description = $0.get("description") as? String,
                       let authorID = $0.get("authorID") as? String
                 else {
@@ -59,7 +58,7 @@ class ChallengeService: ObservableObject {
                 }
                 
                 return Challenge(
-                    id: id,
+                    id: $0.documentID,
                     title: title,
                     description: description,
                     authorID: authorID
