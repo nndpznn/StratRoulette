@@ -18,6 +18,7 @@ struct ChallengeDetail: View {
     var challenge: Challenge
     
     @State var challengeAuthor: Author = exampleUser
+    @State var deleted: Bool = false
     
     var body: some View {
         ZStack {
@@ -27,12 +28,12 @@ struct ChallengeDetail: View {
                 .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
             
             VStack {
-                Text(challenge.title)
+                Text(deleted ? "Deleted Post" : challenge.title)
                     .font(.title)
                     .bold()
                 Divider()
                 
-                Text(challenge.description)
+                Text(deleted ? "This post has been deleted." : challenge.description)
                     .padding()
                     
                 
@@ -56,6 +57,7 @@ struct ChallengeDetail: View {
                 if auth.user != nil && auth.currentAuthor!.id == challenge.authorID {
                     Button("Delete Challenge") {
                         db.collection("challenges").document(challenge.id).delete()
+                        deleted = true
                     }
                 }
             }
