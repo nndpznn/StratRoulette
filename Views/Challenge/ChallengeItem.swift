@@ -40,7 +40,7 @@ struct ChallengeItem: View {
                 }
                 .padding(40)
             }
-        }.preferredColorScheme(.light) //Overrides dark mode users so that we don't have white text on white background
+        }.preferredColorScheme(.light) //Overrides dark mode users so that we don't have white text on white background.  Credit to: https://medium.com/@_DandyLyons/how-to-add-apples-night-mode-to-your-swiftui-views-e172bb41dc94#:~:text=Dark%20Mode%20is%20built%20into,dark)%20.
     }
 }
 

@@ -29,8 +29,8 @@ struct PlaylistList: View {
     
     var body: some View {
         NavigationStack{
-            Button(action: testPlaylistCreation){
-                Label("Create EXAMPLE_VALUES PLaylist", systemImage: "doc.fill.badge.plus")
+            NavigationLink(destination: CreatePlaylist()){
+                Label("Create New Playlist", systemImage: "folder.fill.badge.plus")
             }
             if(playlists.count > 0){
                 List(playlists, id: \.self){ playlist in
