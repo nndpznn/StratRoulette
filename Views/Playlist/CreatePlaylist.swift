@@ -11,16 +11,27 @@ struct CreatePlaylist: View {
     @EnvironmentObject var challengeService: ChallengeService
     @EnvironmentObject var playlistService: PlaylistService
     
+    @Environment(\.dismiss) private var dismiss //credit to: https://stackoverflow.com/questions/56513568/pop-or-dismiss-view-programmatically
+    
     @State var newTitle: String = ""
     @State var challenges: [Challenge] = [Challenge]()
     @State var selectedChallenges: [Challenge] = [Challenge]()
-    @State var fetching: Bool = false
+    @State var fetchingChallenges: Bool = false
+    @State var newID: String = ""
+    @State var saving: Bool = false
     
     func updateChallengeList(){
         Task{
-            fetching = true
+            fetchingChallenges = true
             challenges = try await challengeService.fetchChallenges()
-            fetching = false
+            fetchingChallenges = false
+        }
+    }
+    
+    func updateNewID(){
+        Task{
+            let playlists = try await playlistService.fetchPlaylists()
+            newID = String(playlists.count)
         }
     }
     
@@ -28,26 +39,26 @@ struct CreatePlaylist: View {
         VStack{
             TextField("Title", text: $newTitle)
             Spacer()
-            if(fetching){
+            if(fetchingChallenges || saving){
                 ProgressView()
             }
             else{
                 List{
                     ForEach(challenges){ challenge in
                         Button(action: {
-                            if(challenges.contains(challenge)){ //If the array already has the item, remove it
-                                if let index = challenges.firstIndex(of: challenge){
-                                    challenges.remove(at: index)
+                            if(selectedChallenges.contains(challenge)){ //If the array already has the item, remove it
+                                if let index = selectedChallenges.firstIndex(of: challenge){
+                                    selectedChallenges.remove(at: index)
                                 }
                             }
                             else{ //Otherwise, add the item
-                                challenges.append(challenge)
+                                selectedChallenges.append(challenge)
                             }
                         }){
                             HStack{
                                 Text(challenge.title)
                                 Spacer()
-                                if(challenges.contains(challenge)){
+                                if(selectedChallenges.contains(challenge)){
                                     Image(systemName: "checkmark.circle.fill")
                                         .foregroundColor(.blue)
                                         .animation(.easeIn)
@@ -61,9 +72,24 @@ struct CreatePlaylist: View {
                         }
                     }
                 }
+                Button(action: {
+                    playlistService.createPlaylist(playlist: Playlist(id: newID, playlistName: newTitle, challenges: selectedChallenges))
+                    saving = true
+                    dismiss()
+                }){
+                    HStack{
+                        Spacer()
+                        Text("Done").padding(.all, 25)
+                        Spacer()
+                    }
+                }
             }
             
         }.padding(.horizontal, 25)
+            .onAppear(perform: {
+                updateChallengeList()
+                updateNewID()
+            })
     }
 }
 

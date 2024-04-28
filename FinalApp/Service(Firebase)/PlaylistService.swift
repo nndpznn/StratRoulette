@@ -48,6 +48,7 @@ class PlaylistService: ObservableObject {
         
         db.collection(PLAYLIST_COLLECTION_NAME).addDocument(data: [
             "playlistName": playlist.playlistName,
+            "id": playlist.id,
             "challenges": parsePlaylistChallenges(playlist: playlist),
         ]) { possibleError in
             if let actualError = possibleError {

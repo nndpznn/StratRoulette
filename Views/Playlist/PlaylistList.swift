@@ -18,6 +18,7 @@ struct PlaylistList: View {
     
     func updatePlaylists(){
         Task{
+            print("Updating playlist list")
             playlists = try await playlistService.fetchPlaylists()
         }
     }
@@ -29,8 +30,16 @@ struct PlaylistList: View {
     
     var body: some View {
         NavigationStack{
-            NavigationLink(destination: CreatePlaylist()){
-                Label("Create New Playlist", systemImage: "folder.fill.badge.plus")
+            HStack{
+                NavigationLink(destination: CreatePlaylist().onDisappear(perform: updatePlaylists)){
+                    Label("Create New Playlist", systemImage: "folder.fill.badge.plus")
+                }.padding(.leading, 25)
+                Spacer()
+                Button(action: {
+                    updatePlaylists()
+                }) {
+                    Label("Reload", systemImage: "arrow.triangle.2.circlepath.doc.on.clipboard")
+                }.padding(.trailing, 25)
             }
             if(playlists.count > 0){
                 List(playlists, id: \.self){ playlist in
@@ -46,6 +55,7 @@ struct PlaylistList: View {
             else{
                 ProgressView()
             }
+            Spacer()
         }.onAppear(perform: updatePlaylists)
     }
 }
