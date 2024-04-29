@@ -188,7 +188,7 @@ struct Profile: View {
             }
         }
     }
-}
+}                           
 
 #Preview {
     Profile(challenges: [exampleChallenge1, exampleChallenge2, exampleChallenge3, exampleChallenge1, exampleChallenge1])
