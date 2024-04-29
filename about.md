@@ -4,20 +4,20 @@
 ## Components
 
 ### Provide a title for your overall project (it doesn’t have to be the app’s name, but it should certainly describe it)
-- We called our app "**Lorem Ipsum**."
+- We called our app "**Strat Roulette**."
 
 ### List your team and supply your general roles
  - Nolan Nguyen
-	 - Pretty Asian boy
+	 - Challenge section, Auth, Firestore functionality
  - Dylan Suzuki
-	 - Chiller
+	 - Playlist section, randomization shuffle feature, API, Auth, Firestore functionality
  - Adi Roitburg
-	 - Golden retriever of the group
+	 - Profile section, API, Auth, Firestore functionality
  - Eren Unsal
-	 - Cheerleading, Apple hating, filling out the markdown files, the app icon (maybe). 
+	 - Support - grabbing external resources like images, filling out MD files tracking our progress.
 
 ### Explain your user audience and their needs
--	Our audience is gamers who look for ways to make their favorite video game titles more fun. Due to the repetitive nature of most games, losing the joyful spark you get from them is easy. We allow our users to break out of the same game loop.
+-	Our audience is gamers who look for ways to make their favorite video game titles more fun. Due to the repetitive nature of most games, losing the joyful spark you get from them is inevitable. We allow our users to break out of the same game loop, by using community-sourced challenge ideas to enhance their and their friends' experiences.
 
 ### Provide screenshots of your app, with captions/commentary as appropriate
 
