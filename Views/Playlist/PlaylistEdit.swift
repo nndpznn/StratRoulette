@@ -102,6 +102,11 @@ struct PlaylistEdit: View {
     }
 }
 
-#Preview {
-    CreatePlaylist()
-}
+//struct PlaylistEdit_Previews: PreviewProvider {
+//    @State static var creating = true
+//    
+//    static var previews: some View {
+//        PlaylistEdit(oldPlaylist: examplePlaylist)
+//    }
+//}
+

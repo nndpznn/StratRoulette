@@ -17,6 +17,8 @@ struct ChallengeDetail: View {
     var db = Firestore.firestore()
     var challenge: Challenge
     
+    @Environment(\.dismiss) private var dismiss //credit to: https://stackoverflow.com/questions/56513568/pop-or-dismiss-view-programmatically
+    
     @State var challengeAuthor: Author = exampleUser
     @State var deleted: Bool = false
     
@@ -58,6 +60,7 @@ struct ChallengeDetail: View {
                     Button("Delete Challenge") {
                         db.collection("challenges").document(challenge.id).delete()
                         deleted = true
+                        dismiss()
                     }
                     .disabled(deleted)
                 }
@@ -69,5 +72,6 @@ struct ChallengeDetail: View {
 #Preview {
     ChallengeDetail(challenge: exampleChallenge1)
         .environmentObject(AuthorService())
+        .environmentObject(StratAuth())
 }
 

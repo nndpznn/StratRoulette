@@ -22,7 +22,7 @@ struct PlaylistDetail: View {
     @State var error: Error?
     
     var body: some View {
-        NavigationStack{
+        NavigationStack {
             ZStack{
                 if(!editing){
                     VStack{
@@ -53,11 +53,7 @@ struct PlaylistDetail: View {
                             }
                         }
                         List(playlist.challenges, id: \.self) { challenge in
-                            NavigationLink(destination: ChallengeDetail(challenge: challenge)){
-                                HStack{
-                                    Text(challenge.title)
-                                }
-                            }
+                            ChallengeItem(challenge:challenge)
                         }
                     }
                 }

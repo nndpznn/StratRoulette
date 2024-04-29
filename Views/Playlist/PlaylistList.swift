@@ -12,6 +12,7 @@ struct PlaylistList: View {
     @EnvironmentObject var playlistService: PlaylistService
     
     @State var fetching: Bool = false
+    @State var creating: Bool = false
     
     @State var playlists: [Playlist] = [Playlist]()
     @State var error: Error?
@@ -31,10 +32,12 @@ struct PlaylistList: View {
     var body: some View {
         VStack{
             HStack{
-                NavigationLink(destination: CreatePlaylist().onDisappear(perform: updatePlaylists)){
-                    Label("Create New Playlist", systemImage: "folder.fill.badge.plus")
+                Button("Create New Playlist", systemImage: "folder.fill.badge.plus") {
+                    creating = true
                 }.padding(.leading, 25)
+            
                 Spacer()
+            
                 Button(action: {
                     updatePlaylists()
                 }) {
@@ -56,7 +59,11 @@ struct PlaylistList: View {
                 ProgressView()
             }
             Spacer()
-        }.onAppear(perform: updatePlaylists)
+        }
+        .onAppear(perform: updatePlaylists)
+        .sheet(isPresented: $creating) {
+            CreatePlaylist(creating: $creating).onDisappear(perform: updatePlaylists)
+        }
     }
 }
 

@@ -39,7 +39,7 @@ struct MainFeed: View {
             }
         }
         .sheet(isPresented: $writing) {
-            CreateChallenge(challenges: $challenges, writing: $writing)
+            CreateChallenge(writing: $writing)
         }
         .task {
             do {

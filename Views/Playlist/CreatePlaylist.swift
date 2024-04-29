@@ -14,6 +14,7 @@ struct CreatePlaylist: View {
     
     @Environment(\.dismiss) private var dismiss //credit to: https://stackoverflow.com/questions/56513568/pop-or-dismiss-view-programmatically
     
+    @Binding var creating: Bool
     @State var newTitle: String = ""
     @State var challenges: [Challenge] = [Challenge]()
     @State var selectedChallenges: [Challenge] = [Challenge]()
@@ -77,19 +78,14 @@ struct CreatePlaylist: View {
                     }
                 }
         
-                Button(action: {
+                Button("Done") {
                     if let user = auth.user{
                         playlistService.createPlaylist(playlist: Playlist(id: newID, playlistName: newTitle, authorID: user.uid, challenges: selectedChallenges))
                         saving = true
                         dismiss()
                     }
-                }){
-                    HStack{
-                        Spacer()
-                        Text("Done").padding(.all, 25)
-                        Spacer()
-                    }
                 }
+                .disabled(newTitle.isEmpty)
             }
             
         }.padding(.horizontal, 25)
@@ -100,6 +96,13 @@ struct CreatePlaylist: View {
     }
 }
 
-#Preview {
-    CreatePlaylist()
+struct CreatePlaylist_Previews: PreviewProvider {
+    @State static var creating = true
+    
+    static var previews: some View {
+        CreatePlaylist(creating: $creating)
+            .environmentObject(StratAuth())
+            .environmentObject(ChallengeService())
+            .environmentObject(PlaylistService())
+    }
 }

@@ -12,7 +12,6 @@ struct CreateChallenge: View {
     @EnvironmentObject var authorService: AuthorService
     @EnvironmentObject var challengeService: ChallengeService
     
-    @Binding var challenges: [Challenge]
     @Binding var writing: Bool
     
     @State var title = ""
@@ -61,11 +60,10 @@ struct CreateChallenge: View {
 }
 
 struct CreateChallenge_Previews: PreviewProvider {
-    @State static var challenges: [Challenge] = []
     @State static var writing = true
     
     static var previews: some View {
-        CreateChallenge(challenges: $challenges, writing: $writing)
+        CreateChallenge(writing: $writing)
             .environmentObject(StratAuth())
             .environmentObject(ChallengeService())
     }
