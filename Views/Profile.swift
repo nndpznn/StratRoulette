@@ -177,14 +177,15 @@ struct Profile: View {
                 }
                 .offset(y: -275)
             }
-                    .task{
-                        do{
-                            challenges = try await chalService.fetchChallenges()
-                            playlists = try await playlistService.fetchPlaylists()
-                        } catch {
-                            // Error handling goes here
-                        }
-                    }
+            .padding(.top)
+            .task{
+                do{
+                    challenges = try await chalService.fetchChallenges()
+                    playlists = try await playlistService.fetchPlaylists()
+                } catch {
+                    // Error handling goes here
+                }
+            }
         }
     }
 }
