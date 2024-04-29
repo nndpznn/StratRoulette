@@ -22,46 +22,46 @@ struct PlaylistDetail: View {
     @State var error: Error?
     
     var body: some View {
-        NavigationStack {
-            ZStack{
-                if(!editing){
-                    VStack{
-                        HStack{
-                            VStack{
-                                Text(playlist.playlistName)
-                                    .font(.title)
-                                    .padding(.bottom, 25)
-                                if(playlist.authorID == auth.user?.uid){
-                                    HStack{
-                                        NavigationLink(destination: PlaylistEdit(oldPlaylist: playlist)
-                                            .onDisappear(perform: {dismiss()})
-                                            .onAppear(perform: {editing = true})) {
+        
+        ZStack{
+            if(!editing){
+                VStack{
+                    HStack{
+                        VStack{
+                            Text(playlist.playlistName)
+                                .font(.title)
+                                .padding(.bottom, 25)
+                            if(playlist.authorID == auth.user?.uid){
+                                HStack{
+                                    NavigationLink(destination: PlaylistEdit(oldPlaylist: playlist)
+                                        .onDisappear(perform: {dismiss()})
+                                        .onAppear(perform: {editing = true})) {
                                             Text("Edit Playlist")
                                                 .foregroundStyle(.blue)
                                         }
-                                        Button(action: {
-                                            Task{
-                                                await playlistService.deletePlaylist(playlistId: playlist.id)
-                                                dismiss()
-                                            }
-                                        }) {
-                                            Text("Delete Playlist")
-                                                .foregroundStyle(.red)
+                                    Button(action: {
+                                        Task{
+                                            await playlistService.deletePlaylist(playlistId: playlist.id)
+                                            dismiss()
                                         }
+                                    }) {
+                                        Text("Delete Playlist")
+                                            .foregroundStyle(.red)
                                     }
                                 }
                             }
                         }
-                        List(playlist.challenges, id: \.self) { challenge in
-                            ChallengeItem(challenge:challenge)
-                        }
+                    }
+                    List(playlist.challenges, id: \.self) { challenge in
+                        ChallengeItem(challenge:challenge)
                     }
                 }
-                else{
-                    ProgressView()
-                }
+            }
+            else{
+                ProgressView()
             }
         }
+        
     }
 }
 

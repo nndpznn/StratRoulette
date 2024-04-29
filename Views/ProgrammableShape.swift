@@ -135,7 +135,7 @@ struct ProgrammableShape: View {
             
         }
         .rotationEffect(.degrees(rotationAngle))
-        .animation(Animation.linear(duration: 2).repeatForever(autoreverses: false))
+        .animation(Animation.linear(duration: 3.5).repeatForever(autoreverses: false))
         .onAppear {
             self.rotationAngle = 360
         }
