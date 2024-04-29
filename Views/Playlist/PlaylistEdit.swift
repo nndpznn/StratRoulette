@@ -99,6 +99,11 @@ struct PlaylistEdit: View {
                 updateChallengeList()
                 importPlaylistData()
             })
+            .onDisappear(perform: {
+                if(!saving){
+                    playlistService.createPlaylist(playlist: oldPlaylist)
+                }
+            })
     }
 }
 

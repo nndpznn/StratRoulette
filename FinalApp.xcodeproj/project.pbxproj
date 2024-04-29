@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6007DBC42BDF3D82005E6954 /* PlaylistEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6007DBC32BDF3D82005E6954 /* PlaylistEdit.swift */; };
+		6007DBC62BE0544F005E6954 /* RandomNumberAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6007DBC52BE0544F005E6954 /* RandomNumberAPI.swift */; };
 		608531352BD750F7005E5CD7 /* PlaylistService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608531342BD750F7005E5CD7 /* PlaylistService.swift */; };
 		608531372BD75C45005E5CD7 /* PlaylistList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608531362BD75C45005E5CD7 /* PlaylistList.swift */; };
 		DA6FCE342BC71E1100E53020 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6FCE332BC71E1100E53020 /* Delegate.swift */; };
@@ -66,6 +67,7 @@
 
 /* Begin PBXFileReference section */
 		6007DBC32BDF3D82005E6954 /* PlaylistEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistEdit.swift; sourceTree = "<group>"; };
+		6007DBC52BE0544F005E6954 /* RandomNumberAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RandomNumberAPI.swift; path = Views/Playlist/RandomNumberAPI.swift; sourceTree = SOURCE_ROOT; };
 		608531342BD750F7005E5CD7 /* PlaylistService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistService.swift; sourceTree = "<group>"; };
 		608531362BD75C45005E5CD7 /* PlaylistList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistList.swift; sourceTree = "<group>"; };
 		DA6FCE332BC71E1100E53020 /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 		DA6FCE322BC71DD300E53020 /* Service(API) */ = {
 			isa = PBXGroup;
 			children = (
+				6007DBC52BE0544F005E6954 /* RandomNumberAPI.swift */,
 			);
 			name = "Service(API)";
 			path = "../Service(API)";
@@ -447,6 +450,7 @@
 				EFCA4EA12BD462BC00D6F731 /* AuthorService.swift in Sources */,
 				EF3CF8E52BD0D33A007245F9 /* ChallengeItem.swift in Sources */,
 				EF502CA22BC7A77E00F20C00 /* Challenge.swift in Sources */,
+				6007DBC62BE0544F005E6954 /* RandomNumberAPI.swift in Sources */,
 				EF3CF8EB2BD0DBB1007245F9 /* CreatePlaylist.swift in Sources */,
 				EF502CB32BC7AF8800F20C00 /* EXAMPLEVALUES.swift in Sources */,
 				608531352BD750F7005E5CD7 /* PlaylistService.swift in Sources */,

@@ -16,13 +16,16 @@ struct PlaylistDetail: View {
     
     @State var fetching: Bool = false
     @State var editing: Bool = false
+    @State var rolling: Bool = false
+    @State var gettingRandom: Bool = false
+    
+    @State var currentChallenge: Int = 0
     
     var playlist: Playlist
     //var challenges: [Challenge]
     @State var error: Error?
     
     var body: some View {
-        
         ZStack{
             if(!editing){
                 VStack{
@@ -30,7 +33,7 @@ struct PlaylistDetail: View {
                         VStack{
                             Text(playlist.playlistName)
                                 .font(.title)
-                                .padding(.bottom, 25)
+                                .padding(.bottom, 10)
                             if(playlist.authorID == auth.user?.uid){
                                 HStack{
                                     NavigationLink(destination: PlaylistEdit(oldPlaylist: playlist)
@@ -48,20 +51,64 @@ struct PlaylistDetail: View {
                                         Text("Delete Playlist")
                                             .foregroundStyle(.red)
                                     }
+                                }.padding(.vertical, 15)
+                            }
+                            Button(action: {
+                                print("Spinning the wheel")
+                                Task{
+                                    currentChallenge = try await getRandomNumber(count: playlist.challenges.count)
+                                    print(currentChallenge)
+                                    gettingRandom = true
+                                    rolling = true
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {gettingRandom = false})
+                                }
+                            }) {
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                                        .fill(.white)
+                                        .frame(width:325,height:90)
+                                        .shadow(radius: 1)
+                                    VStack{
+                                        HStack{
+                                            Text("Play")
+                                                .font(.title2)
+                                                .fontWeight(.bold)
+                                        }
+                                    }
                                 }
                             }
                         }
                     }
                     List(playlist.challenges, id: \.self) { challenge in
                         ChallengeItem(challenge:challenge)
-                    }
+                    }.scrollContentBackground(.hidden)
+                     .background(Color.clear)
                 }
             }
             else{
                 ProgressView()
             }
-        }
-        
+        }.sheet(isPresented: $rolling, content: {
+            VStack{
+                if(gettingRandom){
+                    HStack{
+                        Spacer()
+                        ProgrammableShape().offset(x: 0, y: 0)
+                        Spacer()
+                    }
+                }
+                else{
+                    HStack{
+                        Spacer()
+                        Label("", systemImage: "arrow.down").padding(.top, 10)
+                        Spacer()
+                    }
+                    Spacer()
+                    ChallengeDetail(challenge: playlist.challenges[currentChallenge])
+                    Spacer()
+                }
+            }.onDisappear(perform: {rolling = false})
+        })
     }
 }
 
