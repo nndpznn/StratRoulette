@@ -39,7 +39,7 @@ struct ProgrammableShape: View {
         ZStack {
             
             Triangle()
-                .fill(Color.red)
+                .fill(Color.yellow)
                 .frame(width: 140, height: 155)
                 .rotationEffect(.degrees(25))
                 .offset(x: -40, y: 80)
@@ -51,7 +51,7 @@ struct ProgrammableShape: View {
                 .offset(x: 30, y: -70)
             
             Triangle()
-                .fill(Color.blue)
+                .fill(Color.orange)
                 .frame(width: 140, height: 155)
                 .rotationEffect(.degrees(155))
                 .offset(x: -30, y: -70)
@@ -63,16 +63,11 @@ struct ProgrammableShape: View {
                 .offset(x: 40, y: 80)
             
             Triangle()
-                .fill(Color.green)
+                .fill(Color.pink)
                 .frame(width: 140, height: 155)
                 .rotationEffect(.degrees(115))
                 .offset(x: -75, y: -21)
             
-            Triangle()
-                .fill(Color.green)
-                .frame(width: 140, height: 155)
-                .rotationEffect(.degrees(115))
-                .offset(x: -75, y: -21)
             
             Triangle()
                 .fill(Color.green)
@@ -81,7 +76,7 @@ struct ProgrammableShape: View {
                 .offset(x: 75, y: 21)
             
             Triangle()
-                .fill(Color.purple)
+                .fill(Color.cyan)
                 .frame(width: 140, height: 155)
                 .rotationEffect(.degrees(75))
                 .offset(x: -65, y: 35)
@@ -113,6 +108,10 @@ struct ProgrammableShape: View {
                 .fill(Color.black)
                 .frame(width: 300, height: 30)
                 .rotationEffect(.degrees(-45))
+            
+            Circle()
+                .fill(Color.white)
+                .frame(width: 30, height: 30)
             
            
 //            Triangle()
