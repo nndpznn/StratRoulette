@@ -49,6 +49,7 @@ class PlaylistService: ObservableObject {
         db.collection(PLAYLIST_COLLECTION_NAME).addDocument(data: [
             "playlistName": playlist.playlistName,
             "id": playlist.id,
+            "authorID": playlist.authorID,
             "challenges": parsePlaylistChallenges(playlist: playlist),
         ]) { possibleError in
             if let actualError = possibleError {
@@ -70,6 +71,7 @@ class PlaylistService: ObservableObject {
                 
                 guard let name = $0.get("playlistName") as? String,
                       let id = $0.get("id") as? String,
+                      let authorID = $0.get("authorID") as? String,
                       let challengeList = $0.get("challenges") as? [Dictionary<String, String>]
                 else {
                     throw PlaylistServiceError.mismatchedDocumentError
@@ -80,6 +82,7 @@ class PlaylistService: ObservableObject {
                 return Playlist(
                     id: id,
                     playlistName: name,
+                    authorID: authorID,
                     challenges: challenges
                 )
             }

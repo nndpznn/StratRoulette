@@ -14,7 +14,7 @@ struct Profile: View {
     
     @State var challenges: [Challenge]
     @State var playlists: [Playlist] = [examplePlaylist]
-
+    
     @State var showPosts: Bool = true
     @State var showPlaylists: Bool = false
     @State var showAbout: Bool = false
@@ -26,10 +26,6 @@ struct Profile: View {
         NavigationView{
             VStack{
                 ZStack{
-                    //                LinearGradient(gradient: Gradient(colors: [.blue, .black]), startPoint: .topLeading, endPoint: .bottomTrailing)
-                    //                    .frame(width: 500, height: 2000)
-                    //                    .edgesIgnoringSafeArea(.all)
-                    
                     Rectangle()
                         .frame(width: 500, height: 5)
                     
@@ -41,19 +37,19 @@ struct Profile: View {
                         .frame(width: 130, height: 130)
                         .offset(x: -90)
                     
-                    //                if let user = auth.user{
-                    //                    Text(user.displayName ?? "")
-                    //                    .frame(width: 400, height: 30, alignment: .leading)
-                    //                    .font(.system(size: 35, weight: .bold))
-                    //                    .offset(x: 25, y: 100)
-                    //                    .foregroundColor(.black)
-                    //                }
+                    if let user = auth.user{
+                        Text(user.displayName ?? "")
+                            .frame(width: 400, height: 30, alignment: .leading)
+                            .font(.system(size: 35, weight: .bold))
+                            .offset(x: 25, y: 100)
+                            .foregroundColor(.black)
+                    }
                     
-                    Text("Adi Roitburg")
-                        .frame(width: 400, height: 30, alignment: .leading)
-                        .font(.system(size: 35, weight: .bold))
-                        .offset(x: 25, y: 100)
-                        .foregroundColor(.black)
+                    //                    Text("Adi Roitburg")
+                    //                        .frame(width: 400, height: 30, alignment: .leading)
+                    //                        .font(.system(size: 35, weight: .bold))
+                    //                        .offset(x: 25, y: 100)
+                    //                        .foregroundColor(.black)
                     
                     HStack{
                         
@@ -122,10 +118,12 @@ struct Profile: View {
                     
                     if showPosts{
                         List(challenges) { chal in
-                            NavigationLink{
-                                ChallengeDetail(challenge: chal)
-                            } label: {
-                                ChallengeItem(challenge: chal)
+                            if chal.authorID == auth.user?.uid{
+                                NavigationLink{
+                                    ChallengeDetail(challenge: chal)
+                                } label: {
+                                    ChallengeItem(challenge: chal)
+                                }
                             }
                         }
                         .listStyle(PlainListStyle())
@@ -136,10 +134,12 @@ struct Profile: View {
                         
                         VStack{
                             List(playlists) { play in
-                                NavigationLink{
-                                   PlaylistDetail(playlist: play)
-                                } label: {
-                                    Text(play.playlistName)
+                                if play.authorID == auth.user?.uid{
+                                    NavigationLink{
+                                        PlaylistDetail(playlist: play)
+                                    } label: {
+                                        Text(play.playlistName)
+                                    }
                                 }
                                 
                             }
@@ -177,14 +177,14 @@ struct Profile: View {
                 }
                 .offset(y: -275)
             }
-            //        .task{
-            //            do{
-            //                challenges = try await chalService.fetchChallenges()
-            //                playlists = try await playlistService.fetchPlaylists()
-            //            } catch {
-            //                // Error handling goes here
-            //            }
-            //        }
+                    .task{
+                        do{
+                            challenges = try await chalService.fetchChallenges()
+                            playlists = try await playlistService.fetchPlaylists()
+                        } catch {
+                            // Error handling goes here
+                        }
+                    }
         }
     }
 }

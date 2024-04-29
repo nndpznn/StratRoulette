@@ -16,7 +16,7 @@ var exampleChallenge2 = Challenge(id:"0002", title: "Back to Basics", descriptio
 var exampleChallenge3 = Challenge(id:"0003", title: "The Uchiha Survive", description: "You must leave Sheldon and Shashuke alive, as well as ALL of their friends!", authorID: "6DZJUOtNf7WUfjM8NgpvggE7HqY2")
 
 
-var examplePlaylist = Playlist(id: "123", playlistName:"Nolan's Faves", challenges: [
+var examplePlaylist = Playlist(id: "123", playlistName:"Nolan's Faves", authorID: "123" , challenges: [
     exampleChallenge1,
     exampleChallenge2,
     exampleChallenge3

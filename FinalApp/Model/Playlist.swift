@@ -10,6 +10,7 @@ import Foundation
 struct Playlist: Hashable, Codable, Identifiable {
     var id: String
     var playlistName: String
+    var authorID: String
     var challenges: [Challenge]
     func toFirebaseDict() -> Dictionary<String, Any>{
         var rtn = Dictionary<String, Any>()

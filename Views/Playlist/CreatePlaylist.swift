@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CreatePlaylist: View {
+    @EnvironmentObject var auth: StratAuth
     @EnvironmentObject var challengeService: ChallengeService
     @EnvironmentObject var playlistService: PlaylistService
     
@@ -34,6 +35,9 @@ struct CreatePlaylist: View {
             newID = String(playlists.count)
         }
     }
+    
+      
+    
     
     var body: some View {
         VStack{
@@ -72,10 +76,13 @@ struct CreatePlaylist: View {
                         }
                     }
                 }
+        
                 Button(action: {
-                    playlistService.createPlaylist(playlist: Playlist(id: newID, playlistName: newTitle, challenges: selectedChallenges))
-                    saving = true
-                    dismiss()
+                    if let user = auth.user{
+                        playlistService.createPlaylist(playlist: Playlist(id: newID, playlistName: newTitle, authorID: user.uid, challenges: selectedChallenges))
+                        saving = true
+                        dismiss()
+                    }
                 }){
                     HStack{
                         Spacer()
