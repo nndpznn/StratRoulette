@@ -92,6 +92,18 @@ class PlaylistService: ObservableObject {
         }
     }
     
+    func deletePlaylist(playlistId: String) async {
+        do {
+            var deletionRef = try await db.collection(PLAYLIST_COLLECTION_NAME).whereField("id", isEqualTo: playlistId).getDocuments()
+            deletionRef.documents.forEach({doc in
+                doc.reference.delete()
+            })
+            print("Document removed")
+        } catch {
+            print("Error removing document: \(error)")
+        }
+    }
+    
 //    func fetchChallenge(uid: String) async throws -> Challenge {
 //        let challengeQuery = db.collection(COLLECTION_NAME)
 //
