@@ -70,4 +70,19 @@ class StratAuth: NSObject, ObservableObject, FUIAuthDelegate {
         user = nil
         currentAuthor = nil
     }
+    
+    func updateBio(newBio: String)  {
+        guard let uid = user?.uid else {
+            return
+        }
+
+        let authorRef = db.collection("authors").document(uid)
+        authorRef.updateData([
+            "bio": newBio
+        ])
+
+        // Update the currentAuthor with the new bio
+        currentAuthor?.bio = newBio
+    }
+
 }

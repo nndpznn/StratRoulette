@@ -9,6 +9,7 @@ import Foundation
 
 struct Author: Hashable, Codable, Identifiable {
     var id: String
+    var bio: String
     var username: String
     var email: String
     var playlists: [Playlist]

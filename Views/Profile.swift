@@ -11,15 +11,16 @@ struct Profile: View {
     @EnvironmentObject var auth: StratAuth
     @EnvironmentObject var chalService: ChallengeService
     @EnvironmentObject var playlistService: PlaylistService
+    @EnvironmentObject var authorService: AuthorService
     
     @State var challenges: [Challenge]
     @State var playlists: [Playlist] = [examplePlaylist]
-    
+        
     @State var showPosts: Bool = true
     @State var showPlaylists: Bool = false
     @State var showAbout: Bool = false
     @State var bio: String = "Proud member of Strat Roulette"
-    @State var newBio: String = ""
+    @State var newBioo: String = ""
     @State var editingBio: Bool = false
     
     var body: some View {
@@ -154,7 +155,7 @@ struct Profile: View {
                             Button("Enter New Bio +") {
                                 editingBio = true
                             }
-                            Text("Bio: \(bio)")
+                            Text("Bio: \(auth.currentAuthor?.bio ?? "")")
                                 .frame(width: 350, height: 250, alignment: .topLeading)
                             
                             
@@ -164,10 +165,12 @@ struct Profile: View {
                     } else {
                         VStack{
                             Button("Save"){
-                                bio = newBio
+                                //bio = newBio
+                                 
+                                auth.updateBio(newBio: newBioo)
                                 editingBio = false
                             }
-                            TextField("Enter new bio", text: $newBio)
+                            TextField("Enter new bio", text: $newBioo)
                                 .frame(width: 350, height: 250, alignment: .topLeading)
                             
                         }

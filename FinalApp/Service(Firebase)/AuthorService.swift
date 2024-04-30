@@ -22,15 +22,15 @@ class AuthorService: NSObject, ObservableObject, FUIAuthDelegate {
 //    @Published var currentAuthor: Author?
     
     func createAuthor(user: User) -> Author {
-        
         db.collection("authors").document(user.uid).setData([
             "id": user.uid,
+            "bio": "Hey!",
             "username": user.displayName ?? "user",
             "email": user.email ?? "none",
             "playlists": "",
         ])
         
-        return Author(id: user.uid, username: user.displayName ?? "New User", email: user.email ?? "None", playlists: [])
+        return Author(id: user.uid, bio: "Hey!", username: user.displayName ?? "New User", email: user.email ?? "None", playlists: [])
     }
     
     func fetchAuthor(uid: String) async throws -> Author {
@@ -39,14 +39,21 @@ class AuthorService: NSObject, ObservableObject, FUIAuthDelegate {
         let querySnapshot = try await authorQuery.document(uid).getDocument()
           
         return querySnapshot.data().map { _ in
+            let bio = querySnapshot.get("bio") as? String
+            
             let username = querySnapshot.get("username") as? String
             
             let email = querySnapshot.get("email") as? String ?? ""
             
             let playlists = querySnapshot.get("status") as? [Playlist] ?? []
             
-            return Author(id: uid, username: username ?? "user", email: email, playlists: playlists)
+            
+            return Author(id: uid, bio: bio ?? "", username: username ?? "user", email: email, playlists: playlists)
             
         }!
+        
+        
+        
+        
     }
 }
