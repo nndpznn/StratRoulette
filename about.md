@@ -4,7 +4,7 @@
 ## Components
 
 ### Provide a title for your overall project (it doesn’t have to be the app’s name, but it should certainly describe it)
-- We called our app "**Strat Roulette**."
+- We called our app "**StratRoulette**", a combination of the common shortening of "strategy", and "roulette" to reflect the random gamble you take on when using the app.
 
 ### List your team and supply your general roles
  - Nolan Nguyen
@@ -25,6 +25,8 @@ FORMATTING
 #### Write the view name here
 ##### [Insert screenshot here]
 ###### Commentate here
+
+Check out our full keynote with more info and screenshots [here!](https://docs.google.com/presentation/d/1hWVcbPHgWoQi6UPaj6ohkpSOBPJomCVOvPZ_5ssMkdE/edit?usp=sharing)
 
 ### State technology highlights: the API(s) you use, what you store in your database, anything cool, hot, challenging, or annoying/frustrating
 - TODO
