@@ -33,110 +33,92 @@ struct Donut: Shape {
 }
 
 struct ProgrammableShape: View {
-    @State private var rotationAngle: Double = 0
+    @State private var rotationAngle: Double = 0.0
+    @State private var isRotated: Bool = false
+    
+    var animatableData: Bool { //credit to: https://www.hackingwithswift.com/books/ios-swiftui/animating-simple-shapes-with-animatabledata
+        get { isRotated }
+        set { isRotated = newValue }
+    }
     
     var body: some View {
         ZStack {
-            
-            Triangle()
-                .fill(Color.yellow)
-                .frame(width: 140, height: 155)
-                .rotationEffect(.degrees(25))
-                .offset(x: -40, y: 80)
-            
-            Triangle()
-                .fill(Color.red)
-                .frame(width: 140, height: 155)
-                .rotationEffect(.degrees(205))
-                .offset(x: 30, y: -70)
-            
-            Triangle()
-                .fill(Color.orange)
-                .frame(width: 140, height: 155)
-                .rotationEffect(.degrees(155))
-                .offset(x: -30, y: -70)
-            
-            Triangle()
-                .fill(Color.blue)
-                .frame(width: 140, height: 155)
-                .rotationEffect(.degrees(335))
-                .offset(x: 40, y: 80)
-            
-            Triangle()
-                .fill(Color.pink)
-                .frame(width: 140, height: 155)
-                .rotationEffect(.degrees(115))
-                .offset(x: -75, y: -21)
-            
-            
-            Triangle()
-                .fill(Color.green)
-                .frame(width: 140, height: 155)
-                .rotationEffect(.degrees(295))
-                .offset(x: 75, y: 21)
-            
-            Triangle()
-                .fill(Color.cyan)
-                .frame(width: 140, height: 155)
-                .rotationEffect(.degrees(75))
-                .offset(x: -65, y: 35)
-            
-            Triangle()
-                .fill(Color.purple)
-                .frame(width: 140, height: 155)
-                .rotationEffect(.degrees(255))
-                .offset(x: 65, y: -35)
+            ZStack {
+                Triangle()
+                    .fill(Color.yellow)
+                    .frame(width: 140, height: 155)
+                    .rotationEffect(.degrees(25))
+                    .offset(x: -40, y: 80)
+                
+                Triangle()
+                    .fill(Color.red)
+                    .frame(width: 140, height: 155)
+                    .rotationEffect(.degrees(205))
+                    .offset(x: 30, y: -70)
+                
+                Triangle()
+                    .fill(Color.orange)
+                    .frame(width: 140, height: 155)
+                    .rotationEffect(.degrees(155))
+                    .offset(x: -30, y: -70)
+                
+                Triangle()
+                    .fill(Color.blue)
+                    .frame(width: 140, height: 155)
+                    .rotationEffect(.degrees(335))
+                    .offset(x: 40, y: 80)
+                
+                Triangle()
+                    .fill(Color.pink)
+                    .frame(width: 140, height: 155)
+                    .rotationEffect(.degrees(115))
+                    .offset(x: -75, y: -21)
+                
+                
+                Triangle()
+                    .fill(Color.green)
+                    .frame(width: 140, height: 155)
+                    .rotationEffect(.degrees(295))
+                    .offset(x: 75, y: 21)
+                
+                Triangle()
+                    .fill(Color.cyan)
+                    .frame(width: 140, height: 155)
+                    .rotationEffect(.degrees(75))
+                    .offset(x: -65, y: 35)
+                
+                Triangle()
+                    .fill(Color.purple)
+                    .frame(width: 140, height: 155)
+                    .rotationEffect(.degrees(255))
+                    .offset(x: 65, y: -35)
+                
+                Rectangle()
+                    .fill(Color.black)
+                    .frame(width: 300, height: 30)
+                
+                Rectangle()
+                    .fill(Color.black)
+                    .frame(width: 30, height: 300)
+                    
+                Rectangle()
+                    .fill(Color.black)
+                    .frame(width: 300, height: 30)
+                    .rotationEffect(.degrees(45))
+                
+                Rectangle()
+                    .fill(Color.black)
+                    .frame(width: 300, height: 30)
+                    .rotationEffect(.degrees(-45))
+                    
+            }.rotationEffect(Angle.degrees(isRotated ? 360 : 720), anchor: .center)
+                .onAppear {
+                    withAnimation(Animation.linear(duration: 2.0)) {
+                        isRotated = true
+                    }
+                }
             
             Donut(startAngle: .degrees(0), endAngle: .degrees(360), holeRadius: 47)
-                
-           
-                    
-            Rectangle()
-                .fill(Color.black)
-                .frame(width: 300, height: 30)
-            
-            Rectangle()
-                .fill(Color.black)
-                .frame(width: 30, height: 300)
-            
-            Rectangle()
-                .fill(Color.black)
-                .frame(width: 300, height: 30)
-                .rotationEffect(.degrees(45))
-            
-            Rectangle()
-                .fill(Color.black)
-                .frame(width: 300, height: 30)
-                .rotationEffect(.degrees(-45))
-            
-            Circle()
-                .fill(Color.white)
-                .frame(width: 30, height: 30)
-            
-           
-//            Triangle()
-//                .fill(Color.black)
-//                .frame(width: 150, height: 150)
-//                .rotationEffect(.degrees(-45))
-//                .offset(x: 75, y: -75)
-//            
-//            Triangle()
-//                .fill(Color.black)
-//                .frame(width: 150, height: 150)
-//                .rotationEffect(.degrees(45))
-//                .offset(x: -75, y: 75)
-//            
-//            Triangle()
-//                .fill(Color.black)
-//                .frame(width: 150, height: 150)
-//                .rotationEffect(.degrees(-45))
-//                .offset(x: 75, y: 75)
-            
-        }
-        .rotationEffect(.degrees(rotationAngle))
-        .animation(Animation.linear(duration: 3.5).repeatForever(autoreverses: false))
-        .onAppear {
-            self.rotationAngle = 360
         }
     }
 }

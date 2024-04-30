@@ -20,6 +20,11 @@ struct PlaylistDetail: View {
     @State var gettingRandom: Bool = false
     
     @State var currentChallenge: Int = 0
+    @State private var wheelRotation: Bool = false
+    
+    var animation: Animation {
+        Animation.easeOut
+    }
     
     var playlist: Playlist
     //var challenges: [Challenge]
@@ -60,7 +65,10 @@ struct PlaylistDetail: View {
                                     print(currentChallenge)
                                     gettingRandom = true
                                     rolling = true
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {gettingRandom = false})
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
+                                        gettingRandom = false
+                                        self.wheelRotation.toggle()
+                                    })
                                 }
                             }) {
                                 ZStack {
@@ -92,9 +100,7 @@ struct PlaylistDetail: View {
             VStack{
                 if(gettingRandom){
                     HStack{
-                        Spacer()
-                        ProgrammableShape().offset(x: 0, y: 0)
-                        Spacer()
+                        ProgrammableShape()
                     }
                 }
                 else{
