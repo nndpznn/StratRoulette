@@ -30,7 +30,7 @@ struct Profile: View {
                 Rectangle()
                     .frame(width: 500, height: 5)
                 
-                Image("guy")
+                Image("pfp")
                     .resizable()
                     .clipShape(Circle())
                 
