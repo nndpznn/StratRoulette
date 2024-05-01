@@ -31,5 +31,6 @@ Check out our full keynote with more info and screenshots [here!](https://docs.g
 ### State technology highlights: the API(s) you use, what you store in your database, anything cool, hot, challenging, or annoying/frustrating
 - TODO
 ### List any acknowledgements/thanks/credits 
+- https://stock.adobe.com/images/default-avatar-profile-icon-vector-social-media-user/331699188 [Image for PFP]
 - [https://en.ac-illust.com/search/roulette](https://en.ac-illust.com/search/roulette "https://en.ac-illust.com/search/roulette") [App Icon]
 - [https://itch.io/jam/unofficial-pixeland-challenge-2](https://itch.io/jam/unofficial-pixeland-challenge-2 "https://itch.io/jam/unofficial-pixeland-challenge-2") [App Icon]
