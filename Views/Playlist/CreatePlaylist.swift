@@ -22,6 +22,7 @@ struct CreatePlaylist: View {
     @State var newID: String = ""
     @State var saving: Bool = false
     
+    //Grabs list of challenges from the database
     func updateChallengeList(){
         Task{
             fetchingChallenges = true
@@ -30,6 +31,7 @@ struct CreatePlaylist: View {
         }
     }
     
+    //Grabs the number of playlists from the database
     func updateNewID(){
         Task{
             let playlists = try await playlistService.fetchPlaylists()
@@ -44,11 +46,11 @@ struct CreatePlaylist: View {
         VStack{
             TextField("Title", text: $newTitle)
             Spacer()
-            if(fetchingChallenges || saving){
+            if(fetchingChallenges || saving){  //Make sure to let the user know if we're talking to the database
                 ProgressView()
             }
             else{
-                List{
+                List{ //Challenge List
                     ForEach(challenges){ challenge in
                         Button(action: {
                             if(selectedChallenges.contains(challenge)){ //If the array already has the item, remove it
@@ -60,25 +62,27 @@ struct CreatePlaylist: View {
                                 selectedChallenges.append(challenge)
                             }
                         }){
-                            HStack{
+                            HStack{ //Challenge List Item
                                 Text(challenge.title)
                                 Spacer()
-                                if(selectedChallenges.contains(challenge)){
-                                    Image(systemName: "checkmark.circle.fill")
-                                        .foregroundColor(.blue)
-                                        .animation(.easeIn)
+                                if(selectedChallenges.contains(challenge)){ //Right-side icon should reflect selectedChallenges
+                                    withAnimation{
+                                        Image(systemName: "checkmark.circle.fill")
+                                            .foregroundColor(.blue)
+                                    }
                                 }
                                 else{
-                                    Image(systemName: "circle")
-                                        .foregroundColor(.blue)
-                                        .animation(.easeIn)
+                                    withAnimation{
+                                        Image(systemName: "circle")
+                                            .foregroundColor(.blue)
+                                    }
                                 }
                             }
                         }
                     }
                 }
         
-                Button("Done") {
+                Button("Done") { //Save and exit button - only enabled if the user has entered a title
                     if let user = auth.user{
                         playlistService.createPlaylist(playlist: Playlist(id: newID, playlistName: newTitle, authorID: user.uid, challenges: selectedChallenges))
                         saving = true
@@ -89,7 +93,7 @@ struct CreatePlaylist: View {
             }
             
         }.padding(.horizontal, 25)
-            .onAppear(perform: {
+            .onAppear(perform: { //When this view is presented, grab all the data we need from the database
                 updateChallengeList()
                 updateNewID()
             })

@@ -12,7 +12,7 @@ struct PlaylistDetail: View {
     @EnvironmentObject var playlistService: PlaylistService
     @EnvironmentObject var auth: StratAuth
     
-    @Environment(\.dismiss) private var dismiss
+    @Environment(\.dismiss) private var dismiss //credit to: https://stackoverflow.com/questions/56513568/pop-or-dismiss-view-programmatically
     
     @State var fetching: Bool = false
     @State var editing: Bool = false
@@ -20,35 +20,29 @@ struct PlaylistDetail: View {
     @State var gettingRandom: Bool = false
     
     @State var currentChallenge: Int = 0
-    @State private var wheelRotation: Bool = false
-    
-    var animation: Animation {
-        Animation.easeOut
-    }
     
     var playlist: Playlist
-    //var challenges: [Challenge]
     @State var error: Error?
     
     var body: some View {
         ZStack{
             if(!editing){
                 VStack{
-                    HStack{
+                    HStack{ //Title/button holder
                         VStack{
                             Text(playlist.playlistName)
                                 .font(.title)
                                 .bold()
                                 .padding(.bottom, 10)
-                            if(playlist.authorID == auth.user?.uid){
+                            if(playlist.authorID == auth.user?.uid){ //Let authors delete and edit their own playlists
                                 HStack{
-                                    NavigationLink(destination: PlaylistEdit(oldPlaylist: playlist)
+                                    NavigationLink(destination: PlaylistEdit(oldPlaylist: playlist) //Edit button
                                         .onDisappear(perform: {dismiss()})
                                         .onAppear(perform: {editing = true})) {
                                             Text("Edit Playlist")
                                                 .foregroundStyle(.blue)
                                         }
-                                    Button(action: {
+                                    Button(action: { //Delete button
                                         Task{
                                             await playlistService.deletePlaylist(playlistId: playlist.id)
                                             dismiss()
@@ -59,7 +53,7 @@ struct PlaylistDetail: View {
                                     }
                                 }.padding(.vertical, 15)
                             }
-                            Button(action: {
+                            Button(action: { //Play button
                                 print("Spinning the wheel")
                                 Task{
                                     currentChallenge = try await getRandomNumber(count: playlist.challenges.count)
@@ -68,7 +62,6 @@ struct PlaylistDetail: View {
                                     rolling = true
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
                                         gettingRandom = false
-                                        self.wheelRotation.toggle()
                                     })
                                 }
                             }) {
@@ -88,7 +81,7 @@ struct PlaylistDetail: View {
                             }
                         }
                     }
-                    List(playlist.challenges, id: \.self) { challenge in
+                    List(playlist.challenges, id: \.self) { challenge in //Challenge List
                         ChallengeItem(challenge:challenge)
                     }.scrollContentBackground(.hidden)
                      .background(Color.clear)
@@ -97,14 +90,14 @@ struct PlaylistDetail: View {
             else{
                 ProgressView()
             }
-        }.sheet(isPresented: $rolling, content: {
+        }.sheet(isPresented: $rolling, content: { //Challenge sheet
             VStack{
-                if(gettingRandom){
+                if(gettingRandom){ //For 2 seconds after the user hits play, the rouletteWheel will show up and spin
                     HStack{
                         ProgrammableShape()
                     }
                 }
-                else{
+                else{  //After the wheel has done it's thing, we just display the challenge that was rolled
                     HStack{
                         Spacer()
                         Label("", systemImage: "arrow.down").padding(.top, 10)
@@ -119,7 +112,7 @@ struct PlaylistDetail: View {
                     }
                     Spacer()
                 }
-            }.onDisappear(perform: {rolling = false})
+            }.onDisappear(perform: {rolling = false}) //Make sure to reset our booleans when the user dismisses the sheet
         })
     }
 }

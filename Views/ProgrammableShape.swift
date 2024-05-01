@@ -1,5 +1,13 @@
+//
+//  ProgrammableShape.swift
+//  FinalApp
+//
+//  Created by Adi Roitburg on 4/27/24.
+//
+
 import SwiftUI
 
+//Triangle helper shape for coloring in the sections of the roulette wheel
 struct Triangle: Shape {
     func path(in rect: CGRect) -> Path {
         Path { path in
@@ -11,6 +19,7 @@ struct Triangle: Shape {
     }
 }
 
+//Donut helper shape for the outer circle of the roulette wheel
 struct Donut: Shape {
     var startAngle: Angle
     var endAngle: Angle
@@ -42,8 +51,8 @@ struct ProgrammableShape: View {
     }
     
     var body: some View {
-        ZStack {
-            ZStack {
+        ZStack { //Full shape
+            ZStack { //Inner section
                 Triangle()
                     .fill(Color.yellow)
                     .frame(width: 140, height: 155)

@@ -29,7 +29,7 @@ struct PlaylistEdit: View {
         }
     }
     
-    func importPlaylistData(){
+    func importPlaylistData(){ //Since this is the edit page and not the creation page, we need to import the old data
         Task{
             await playlistService.deletePlaylist(playlistId: oldPlaylist.id)
         }
@@ -61,25 +61,27 @@ struct PlaylistEdit: View {
                                 selectedChallenges.append(challenge)
                             }
                         }){
-                            HStack{
+                            HStack{ //Challenge List Item
                                 Text(challenge.title)
                                 Spacer()
                                 if(selectedChallenges.contains(challenge)){
-                                    Image(systemName: "checkmark.circle.fill")
-                                        .foregroundColor(.blue)
-                                        .animation(.easeIn)
+                                    withAnimation{
+                                        Image(systemName: "checkmark.circle.fill")
+                                            .foregroundColor(.blue)
+                                    }
                                 }
                                 else{
-                                    Image(systemName: "circle")
-                                        .foregroundColor(.blue)
-                                        .animation(.easeIn)
+                                    withAnimation{
+                                        Image(systemName: "circle")
+                                            .foregroundColor(.blue)
+                                    }
                                 }
                             }
                         }
                     }
                 }
         
-                Button(action: {
+                Button(action: { //Save and exit button
                     if let user = auth.user{
                         playlistService.createPlaylist(playlist: Playlist(id: newID, playlistName: newTitle, authorID: user.uid, challenges: selectedChallenges))
                         saving = true
@@ -95,11 +97,11 @@ struct PlaylistEdit: View {
             }
             
         }.padding(.horizontal, 25)
-            .onAppear(perform: {
+            .onAppear(perform: { //Grab data from the database when this view is presented
                 updateChallengeList()
                 importPlaylistData()
             })
-            .onDisappear(perform: {
+            .onDisappear(perform: { //If the user decides to leave the edit screen without saving their changes, just revert to oldPlaylist
                 if(!saving){
                     playlistService.createPlaylist(playlist: oldPlaylist)
                 }
