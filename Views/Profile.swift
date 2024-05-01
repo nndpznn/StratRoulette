@@ -23,9 +23,13 @@ struct Profile: View {
     @State var newBioo: String = ""
     @State var editingBio: Bool = false
     
+    @State var error: Bool = false
+    
     var body: some View {
         
         VStack{
+            
+            
             ZStack{
                 Rectangle()
                     .frame(width: 500, height: 5)
@@ -46,11 +50,6 @@ struct Profile: View {
                         .foregroundColor(.black)
                 }
                 
-                //                    Text("Adi Roitburg")
-                //                        .frame(width: 400, height: 30, alignment: .leading)
-                //                        .font(.system(size: 35, weight: .bold))
-                //                        .offset(x: 25, y: 100)
-                //                        .foregroundColor(.black)
                 
                 HStack{
                     
@@ -118,35 +117,47 @@ struct Profile: View {
                     .offset(y: 200)
                 
                 if showPosts{
-                    List(challenges) { chal in
-                        if chal.authorID == auth.user?.uid{
-                            NavigationLink{
-                                ChallengeDetail(challenge: chal)
-                            } label: {
-                                ChallengeItem(challenge: chal)
+                    if error == false{
+                        List(challenges) { chal in
+                            if chal.authorID == auth.user?.uid{
+                                NavigationLink{
+                                    ChallengeDetail(challenge: chal)
+                                } label: {
+                                    ChallengeItem(challenge: chal)
+                                }
                             }
                         }
+                        .listStyle(PlainListStyle())
+                        .background(Color.clear)
+                        .offset(y: 475)
+                        .frame(width: 400, height: 500)
+                        
+                    } else {
+                        Text("There was an error sorry :(")
+                            .offset(y: 475)
+
                     }
-                    .listStyle(PlainListStyle())
-                    .background(Color.clear)
-                    .offset(y: 475)
-                    .frame(width: 400, height: 500)
                 } else if showPlaylists {
                     
                     VStack{
-                        List(playlists) { play in
-                            if play.authorID == auth.user?.uid{
-                                NavigationLink{
-                                    PlaylistDetail(playlist: play)
-                                } label: {
-                                    Text(play.playlistName)
+                        if error == false {
+                            List(playlists) { play in
+                                if play.authorID == auth.user?.uid{
+                                    NavigationLink{
+                                        PlaylistDetail(playlist: play)
+                                    } label: {
+                                        Text(play.playlistName)
+                                    }
                                 }
+                                
                             }
-                            
+                            .listStyle(PlainListStyle())
+                            .offset(y: 475)
+                            .frame(width: 400, height: 500)
+                        } else {
+                            Text("There was an error sorry :(")
+                                .offset(y: 475)
                         }
-                        .listStyle(PlainListStyle())
-                        .offset(y: 475)
-                        .frame(width: 400, height: 500)
                     }
                     
                 } else if showAbout{
@@ -187,6 +198,7 @@ struct Profile: View {
                 playlists = try await playlistService.fetchPlaylists()
             } catch {
                 // Error handling goes here
+                self.error = true
             }
         }
         
