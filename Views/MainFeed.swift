@@ -14,6 +14,8 @@ struct MainFeed: View {
     @State var challenges: [Challenge] = [exampleChallenge1, exampleChallenge2, exampleChallenge3]
     @State var writing: Bool = false
     
+    @State var error: Bool = false
+    
     var body: some View {
         VStack {
             Text("Challenge Feed")
@@ -24,12 +26,16 @@ struct MainFeed: View {
                 writing = true
             }
             
-            List(challenges) { challenge in
-                ChallengeItem(challenge: challenge)
-                    .environmentObject(AuthorService())
+            if error == false{
+                List(challenges) { challenge in
+                    ChallengeItem(challenge: challenge)
+                        .environmentObject(AuthorService())
+                }
+                .scrollContentBackground(.hidden)
+                .background(Color.clear)
+            } else {
+                Text("Something went wrong :(")
             }
-            .scrollContentBackground(.hidden)
-            .background(Color.clear)
         }
         .refreshable {
             do {
@@ -45,7 +51,7 @@ struct MainFeed: View {
             do {
                 challenges = try await challengeService.fetchChallenges()
             } catch {
-
+                self.error = true
             }
         }
     }
