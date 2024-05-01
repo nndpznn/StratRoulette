@@ -38,6 +38,7 @@ struct PlaylistDetail: View {
                         VStack{
                             Text(playlist.playlistName)
                                 .font(.title)
+                                .bold()
                                 .padding(.bottom, 10)
                             if(playlist.authorID == auth.user?.uid){
                                 HStack{
@@ -110,7 +111,12 @@ struct PlaylistDetail: View {
                         Spacer()
                     }
                     Spacer()
-                    ChallengeDetail(challenge: playlist.challenges[currentChallenge])
+                    VStack {
+                        Text("Prepare for...")
+                            .font(.title)
+                            .bold()
+                        ChallengeDetail(challenge: playlist.challenges[currentChallenge])
+                    }
                     Spacer()
                 }
             }.onDisappear(perform: {rolling = false})

@@ -16,13 +16,13 @@ struct HomePage: View {
                 .tabItem {
                     Label("Feed", systemImage: "list.bullet")
                 }
-            PlaylistList()
-                .tabItem {
-                    Label("Playlists", systemImage: "list.bullet")
-                }
             Profile(challenges: [])
                 .tabItem {
                     Label("Profile", systemImage: "person.circle")
+                }
+            PlaylistList()
+                .tabItem {
+                    Label("Playlists", systemImage: "folder.fill")
                 }
         }
     }
